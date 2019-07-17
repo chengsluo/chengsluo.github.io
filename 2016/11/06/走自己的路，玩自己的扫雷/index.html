@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.2',
+    sidebar: {"position":"left","width":240,"display":"post","offset":25,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="介绍Windows10更新后，附件里的以前喜闻乐见的小游戏，比如蜘蛛纸牌，三维弹球，扫雷都消失了。这些游戏我记得从windows XP都开始存在了，b（￣▽￣）d　好怀念！正好这次Windows开发课程有个左右，我和另外一个小组成员准备一起做个游戏，做什么好呢，来吧，做个扫雷玩吧。嘣(๑•̀ㅂ•́)و✧！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="走自己的路，玩自己的扫雷">
+<meta property="og:url" content="http://chengsluo.github.io/2016/11/06/走自己的路，玩自己的扫雷/index.html">
+<meta property="og:site_name" content="FaultCode">
+<meta property="og:description" content="介绍Windows10更新后，附件里的以前喜闻乐见的小游戏，比如蜘蛛纸牌，三维弹球，扫雷都消失了。这些游戏我记得从windows XP都开始存在了，b（￣▽￣）d　好怀念！正好这次Windows开发课程有个左右，我和另外一个小组成员准备一起做个游戏，做什么好呢，来吧，做个扫雷玩吧。嘣(๑•̀ㅂ•́)و✧！">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://chengsluo.github.io/images/run-mine-sweeper.png">
+<meta property="og:updated_time" content="2018-03-20T09:59:12.150Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="走自己的路，玩自己的扫雷">
+<meta name="twitter:description" content="介绍Windows10更新后，附件里的以前喜闻乐见的小游戏，比如蜘蛛纸牌，三维弹球，扫雷都消失了。这些游戏我记得从windows XP都开始存在了，b（￣▽￣）d　好怀念！正好这次Windows开发课程有个左右，我和另外一个小组成员准备一起做个游戏，做什么好呢，来吧，做个扫雷玩吧。嘣(๑•̀ㅂ•́)و✧！">
+<meta name="twitter:image" content="http://chengsluo.github.io/images/run-mine-sweeper.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://chengsluo.github.io/2016/11/06/走自己的路，玩自己的扫雷/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>走自己的路，玩自己的扫雷 | FaultCode</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">FaultCode</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">记录所思所想</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chengsluo.github.io/2016/11/06/走自己的路，玩自己的扫雷/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chengs Luo">
+      <meta itemprop="description" content i want to put a ding in the universe. " —— steve jobs">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FaultCode">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">走自己的路，玩自己的扫雷
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2016-11-06 23:58:07" itemprop="dateCreated datePublished" datetime="2016-11-06T23:58:07+08:00">2016-11-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-03-20 17:59:12" itemprop="dateModified" datetime="2018-03-20T17:59:12+08:00">2018-03-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2016/11/06/走自己的路，玩自己的扫雷/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/11/06/走自己的路，玩自己的扫雷/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Windows10更新后，附件里的以前喜闻乐见的小游戏，比如蜘蛛纸牌，三维弹球，扫雷都消失了。这些游戏我记得从windows XP都开始存在了，b（￣▽￣）d　好怀念！正好这次Windows开发课程有个左右，我和另外一个小组成员准备一起做个游戏，做什么好呢，来吧，做个扫雷玩吧。嘣(๑•̀ㅂ•́)و✧！ </p>
+<a id="more"></a>
+<h2 id="界面设计"><a href="#界面设计" class="headerlink" title="界面设计"></a>界面设计</h2><p>由于使用的是Win32中的工具库，除了界面菜单部分，其他的界面都需要自己重绘，并且控制生命周期.所以程序结构就比较复杂,最后的成品如下:<br><img src="/images/run-mine-sweeper.png" alt="扫雷界面"></p>
+<h2 id="数字显示设计"><a href="#数字显示设计" class="headerlink" title="数字显示设计"></a>数字显示设计</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//画数字</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">draw_num</span><span class="params">(HDC hdc, <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> num)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">static</span> HPEN hWhitePen = CreatePen(PS_SOLID, <span class="number">3</span>, RGB(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>));</span><br><span class="line">	SelectObject(hdc, hWhitePen);</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		MoveToEx(hdc, x + sp[i][<span class="number">0</span>], y + sp[i][<span class="number">1</span>], <span class="literal">NULL</span>);</span><br><span class="line">		LineTo(hdc, x + ep[i][<span class="number">0</span>], y + ep[i][<span class="number">1</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">static</span> HPEN hRedPen = CreatePen(PS_SOLID, <span class="number">3</span>, RGB(<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>));</span><br><span class="line">	SelectObject(hdc, hRedPen);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (light[num][i])</span><br><span class="line">		&#123;</span><br><span class="line">			MoveToEx(hdc, x + sp[i][<span class="number">0</span>], y + sp[i][<span class="number">1</span>], <span class="literal">NULL</span>);</span><br><span class="line">			LineTo(hdc, x + ep[i][<span class="number">0</span>], y + ep[i][<span class="number">1</span>]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="地图生成算法设计"><a href="#地图生成算法设计" class="headerlink" title="地图生成算法设计"></a>地图生成算法设计</h2><p>随机生成点，并且将周围的对地雷周围的格子权值加1.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在整个雷盘布置num个雷，而且保证(px,py)点不能被放上雷</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setmine</span><span class="params">(<span class="keyword">int</span> num, <span class="keyword">int</span> px, <span class="keyword">int</span> py)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">int</span> tx, ty;</span><br><span class="line">	srand((<span class="keyword">unsigned</span> <span class="keyword">int</span>)time(<span class="literal">NULL</span>));</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; num; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		tx = rand() %COLUMNS;<span class="comment">//随机数挑选纵坐标</span></span><br><span class="line">		ty = rand() % ROWS;<span class="comment">//随机数挑选横坐标</span></span><br><span class="line">		<span class="keyword">if</span> (ma[tx][ty] == <span class="number">10</span> || (tx == px &amp;&amp; ty == py))<span class="comment">//如果这一点已经被布置过雷，或者是(px,py)点，那么就跳过，重新挑点</span></span><br><span class="line">		&#123;</span><br><span class="line">			i--;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		ma[tx][ty] = <span class="number">10</span>;</span><br><span class="line">		<span class="comment">//将四周不是雷的点的数字加一</span></span><br><span class="line">		<span class="keyword">if</span> (ty&gt;<span class="number">0</span>&amp;&amp;ma[tx][ty - <span class="number">1</span>] &lt; <span class="number">9</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			ma[tx][ty - <span class="number">1</span>]++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (ty + <span class="number">1</span>&lt;ROWS &amp;&amp; ma[tx][ty + <span class="number">1</span>] &lt; <span class="number">9</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			ma[tx][ty + <span class="number">1</span>]++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (tx + <span class="number">1</span>&lt;COLUMNS &amp;&amp; ma[tx + <span class="number">1</span>][ty] &lt; <span class="number">9</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			ma[tx + <span class="number">1</span>][ty]++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (tx&gt;<span class="number">0</span>&amp;&amp;ma[tx - <span class="number">1</span>][ty] &lt; <span class="number">9</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			ma[tx - <span class="number">1</span>][ty]++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (tx +<span class="number">1</span> &lt;COLUMNS &amp;&amp; ty+ <span class="number">1</span> &lt;ROWS &amp;&amp; ma[tx + <span class="number">1</span>][ty + <span class="number">1</span>] &lt; <span class="number">9</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			ma[tx + <span class="number">1</span>][ty + <span class="number">1</span>]++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (tx &gt;<span class="number">0</span>&amp;&amp; ty&gt;<span class="number">0</span>&amp;&amp;ma[tx - <span class="number">1</span>][ty - <span class="number">1</span>] &lt; <span class="number">9</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			ma[tx - <span class="number">1</span>][ty - <span class="number">1</span>]++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (tx+<span class="number">1</span>&lt;COLUMNS &amp;&amp; ty&gt;<span class="number">0</span> &amp;&amp; ma[tx + <span class="number">1</span>][ty - <span class="number">1</span>] &lt; <span class="number">9</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			ma[tx + <span class="number">1</span>][ty - <span class="number">1</span>]++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (tx&gt;<span class="number">0</span> &amp;&amp; ty+<span class="number">1</span>&lt;ROWS &amp;&amp; ma[tx - <span class="number">1</span>][ty + <span class="number">1</span>] &lt; <span class="number">9</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			ma[tx - <span class="number">1</span>][ty + <span class="number">1</span>]++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h2><p>我的Github<br><a href="https://github.com/chengsluo/Mine-Sweeper" target="_blank" rel="noopener">https://github.com/chengsluo/Mine-Sweeper</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/06/搭建Hexo博客和配置主题的一些坑/" rel="next" title="搭建Hexo博客和配置主题的一些坑">
+                <i class="fa fa-chevron-left"></i> 搭建Hexo博客和配置主题的一些坑
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/06/线性回归与逻辑回归/" rel="prev" title="线性回归与逻辑回归">
+                线性回归与逻辑回归 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Chengs Luo</p>
+              <div class="site-description motion-element" itemprop="description">"I want to put a ding in the universe. " —— Steve Jobs</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/chengsluo" title="GitHub &rarr; https://github.com/chengsluo" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.douban.com/people/70427926/" title="Douban &rarr; https://www.douban.com/people/70427926/" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>Douban</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/ChengsLuo" title="Twitter &rarr; https://twitter.com/ChengsLuo" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://instagram.com/chengsluo" title="Instagram &rarr; https://instagram.com/chengsluo" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#界面设计"><span class="nav-number">2.</span> <span class="nav-text">界面设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字显示设计"><span class="nav-number">3.</span> <span class="nav-text">数字显示设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#地图生成算法设计"><span class="nav-number">4.</span> <span class="nav-text">地图生成算法设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源代码"><span class="nav-number">5.</span> <span class="nav-text">源代码</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chengs Luo</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://chengsluo.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://chengsluo.github.io/2016/11/06/走自己的路，玩自己的扫雷/";
+    this.page.identifier = "2016/11/06/走自己的路，玩自己的扫雷/";
+    this.page.title = '走自己的路，玩自己的扫雷';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://chengsluo.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    window.addEventListener('load', loadComments, false);
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

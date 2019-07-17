@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.2',
+    sidebar: {"position":"left","width":240,"display":"post","offset":25,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Spark简介什么是Spark？Apache Spark是用于大规模数据处理的快速(fast)和通用(general)引擎，由加州伯克利分校AMP(Algorithms、Machines and People Lab，在算法、机器和人之间通过大规模集成来展现大数据的应用平台)实验室开发的大数据处理框架。Spark提供了大数据处理的一站式解决方案，以Spark Core为基础推出了Spark SQL">
+<meta name="keywords" content="Spark">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spark操作笔记">
+<meta property="og:url" content="http://chengsluo.github.io/2018/01/10/Spark操作笔记/index.html">
+<meta property="og:site_name" content="FaultCode">
+<meta property="og:description" content="Spark简介什么是Spark？Apache Spark是用于大规模数据处理的快速(fast)和通用(general)引擎，由加州伯克利分校AMP(Algorithms、Machines and People Lab，在算法、机器和人之间通过大规模集成来展现大数据的应用平台)实验室开发的大数据处理框架。Spark提供了大数据处理的一站式解决方案，以Spark Core为基础推出了Spark SQL">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-03-19T00:27:04.333Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spark操作笔记">
+<meta name="twitter:description" content="Spark简介什么是Spark？Apache Spark是用于大规模数据处理的快速(fast)和通用(general)引擎，由加州伯克利分校AMP(Algorithms、Machines and People Lab，在算法、机器和人之间通过大规模集成来展现大数据的应用平台)实验室开发的大数据处理框架。Spark提供了大数据处理的一站式解决方案，以Spark Core为基础推出了Spark SQL">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://chengsluo.github.io/2018/01/10/Spark操作笔记/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Spark操作笔记 | FaultCode</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">FaultCode</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">记录所思所想</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chengsluo.github.io/2018/01/10/Spark操作笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chengs Luo">
+      <meta itemprop="description" content i want to put a ding in the universe. " —— steve jobs">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FaultCode">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Spark操作笔记
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-01-10 01:26:49" itemprop="dateCreated datePublished" datetime="2018-01-10T01:26:49+08:00">2018-01-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-03-19 08:27:04" itemprop="dateModified" datetime="2018-03-19T08:27:04+08:00">2018-03-19</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2018/01/10/Spark操作笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/01/10/Spark操作笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Spark简介"><a href="#Spark简介" class="headerlink" title="Spark简介"></a>Spark简介</h2><h3 id="什么是Spark？"><a href="#什么是Spark？" class="headerlink" title="什么是Spark？"></a>什么是Spark？</h3><p>Apache Spark是用于大规模数据处理的快速(fast)和通用(general)引擎，由加州伯克利分校AMP(Algorithms、Machines and People Lab，在算法、机器和人之间通过大规模集成来展现大数据的应用平台)实验室开发的大数据处理框架。<br>Spark提供了大数据处理的一站式解决方案，以Spark Core为基础推出了Spark SQL、Spark Streaming、MLlib、GraphX、SparkR等组件。整个Spark生态体系称为BDAS，即：伯克利数据分析栈。</p>
+<a id="more"></a>
+<h3 id="Spark特点"><a href="#Spark特点" class="headerlink" title="Spark特点"></a>Spark特点</h3><p>Spark具有运行速度快、易用性好、通用型强和随处运行的特点。</p>
+<h4 id="运行速度快-Speed"><a href="#运行速度快-Speed" class="headerlink" title="运行速度快(Speed)"></a>运行速度快(Speed)</h4><p>如果Spark基于内存读取，速度是Hadoop的100倍；使用磁盘读取，也是Hadoop的十倍。spark之所以能够比Hadoop快，有两点主要原因：内存计算和引入DAG执行引擎。</p>
+<h4 id="易用性好-Ease-of-Use"><a href="#易用性好-Ease-of-Use" class="headerlink" title="易用性好(Ease of Use)"></a>易用性好(Ease of Use)</h4><p>Spark支持Scala、Java、Python、R语言编写应用程序，并且提供了Scala、Python、R的交互式操作shell。</p>
+<h4 id="通用型强-generality"><a href="#通用型强-generality" class="headerlink" title="通用型强(generality)"></a>通用型强(generality)</h4><p>Spark提供了一站式的大数据解决方案，生态圈BADS包含了：提供内存计算框架的Spark Core、用于结构化查询的Spark SQL、用于实时计算的Spark Streaming、用于机器学习的MLlib和用于图计算的GraphX。</p>
+<h4 id="随处运行-Runs-Everywhere"><a href="#随处运行-Runs-Everywhere" class="headerlink" title="随处运行(Runs Everywhere)"></a>随处运行(Runs Everywhere)</h4><p>Spark提供了本地Local运行模式，用来学习和测试(当然还有许多用途，比如我们正在做的一个项目就是基于Local模式的)。对于集群部署模式，Spark能够以YARN、Mesos和自身提供的Standalone作为资源管理调度框架来执行作业。对于数据源，Spark能够读取HDFS、Cassandra、HBase、S3、Alluxio等数据源数据。</p>
+<h2 id="资源调度器YARN"><a href="#资源调度器YARN" class="headerlink" title="资源调度器YARN"></a>资源调度器YARN</h2><h3 id="YARN简介"><a href="#YARN简介" class="headerlink" title="YARN简介"></a>YARN简介</h3><p>YARＮ是Spark的3种调度器之一,主要是用来管理和分配集群资源<br>需要根据情况修改YARN默认参数配置(修改yarn-site.xml或者CDH设置):</p>
+<h3 id="提交任务到集群-根据计算类型分配各自参数"><a href="#提交任务到集群-根据计算类型分配各自参数" class="headerlink" title="提交任务到集群,根据计算类型分配各自参数:"></a>提交任务到集群,根据计算类型分配各自参数:</h3><ul>
+<li>IO密集型:每个exector的cores为１就好;</li>
+<li>driver-memory:主要取决于最后聚合输出(如collect操作)的结果大小;</li>
+<li>num-executors:最好与代码里面的partition或coalesce操作的分区数量相匹配;</li>
+<li>executor-memory:取决于每个stage需要的内存大小;</li>
+<li>为了使代码更加清晰可读，shell代码可以使用\来分行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env sh</span><br><span class="line">sbt package &amp;&amp;\</span><br><span class="line">scp target/scala-2.11/metro-data_2.11-1.0.jar \</span><br><span class="line">root@c1:~/chengsluo/ &amp;&amp;\</span><br><span class="line">ssh root@c1 -o StrictHostKeyChecking=no &quot;</span><br><span class="line">cd chengsluo &amp;&amp; \</span><br><span class="line">spark2-submit \</span><br><span class="line">--master yarn \</span><br><span class="line">--deploy-mode cluster \</span><br><span class="line">--executor-memory 1g \</span><br><span class="line">--executor-cores 2 \</span><br><span class="line">metro-data_2.11-1.0.jar </span><br><span class="line">&quot;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="提前中断任务"><a href="#提前中断任务" class="headerlink" title="提前中断任务"></a>提前中断任务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn application -kill application_1516444072266_0002</span><br></pre></td></tr></table></figure>
+
+<h2 id="HIVE和Spark-SQL性能对比"><a href="#HIVE和Spark-SQL性能对比" class="headerlink" title="HIVE和Spark-SQL性能对比"></a>HIVE和Spark-SQL性能对比</h2><h3 id="逻辑介绍"><a href="#逻辑介绍" class="headerlink" title="逻辑介绍"></a>逻辑介绍</h3><ul>
+<li>生成OD断面中间表,通过历史运行数据来得到运行线路；</li>
+<li>由一个历史OD比例表与一个子查询链接,共生成130441786条数据。<h3 id="性能对比"><a href="#性能对比" class="headerlink" title="性能对比"></a>性能对比</h3><table>
+<thead>
+<tr>
+<th>—</th>
+<th>Spark with Python</th>
+<th>Spark with Scala</th>
+<th>HIVE On MapReduce</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>耗时</td>
+<td>4.7min</td>
+<td>4.4min</td>
+<td>20min</td>
+</tr>
+<tr>
+<td>其中HIVE on MapReduce可能受大屏项目的其他查询影响，导致速度很可能比正常要慢一些。</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>### 三种实现</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HIVE-SQL语句:</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">insert overwrite table sparktest.tbl_dm_od_cust_mid1 select </span><br><span class="line">    dm_id     </span><br><span class="line"> ,a.od_begin_cd</span><br><span class="line">    ,a.od_end_cd</span><br><span class="line">    ,a.time_id</span><br><span class="line">    ,line_id</span><br><span class="line">    ,GD_begin_cd</span><br><span class="line">    ,gd_end_cd</span><br><span class="line">    ,lead(gd_end_cd,1,&apos;0000&apos;) over(partition by substr(cast(dm_id as string),1,9) order by run_time) as gd_end_cd_nxt</span><br><span class="line">    ,gd_begin_nm</span><br><span class="line">    ,gd_end_nm</span><br><span class="line">    ,a.time_id+run_time/3 as sta_time_id</span><br><span class="line">    ,a.time_id+max_time/3 end_time_id</span><br><span class="line">    ,cast(b.percent*a.cust_rate as float) precent</span><br><span class="line">from</span><br><span class="line">    sptcc_dm.tbl_dm_od_rate a,</span><br><span class="line">    (select</span><br><span class="line">         dm_id</span><br><span class="line">   ,line_id</span><br><span class="line">         ,od_begin_cd</span><br><span class="line">         ,od_end_cd</span><br><span class="line">         ,gd_begin_cd</span><br><span class="line">         ,gd_end_cd</span><br><span class="line">    ,lead(gd_end_cd,1,&apos;0000&apos;) over(partition by substr(cast(dm_id as string),1,9) order by run_time) as gd_end_cd_nxt</span><br><span class="line">         ,gd_begin_nm</span><br><span class="line">         ,gd_end_nm</span><br><span class="line">         ,run_time</span><br><span class="line">         ,percent</span><br><span class="line">         ,max(run_time) over(partition by substr(cast(dm_id as string),1,9)) as max_time</span><br><span class="line">    from sptcc_dpa.tbl_dim_od_dm</span><br><span class="line">    ) b</span><br><span class="line">where</span><br><span class="line">    a.od_begin_cd=b.od_begin_cd</span><br><span class="line">    and a.od_end_cd=b.od_end_cd</span><br></pre></td></tr></table></figure></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>Spark实现代码:</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.apache.spark.examples.sql.hive</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.sql.<span class="type">SparkSession</span></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">SparkHiveExample</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]) &#123;</span><br><span class="line">    <span class="keyword">val</span> spark = <span class="type">SparkSession</span></span><br><span class="line">      .builder()</span><br><span class="line">      .appName(<span class="string">"Spark Speed Test"</span>)</span><br><span class="line">      .enableHiveSupport()</span><br><span class="line">      .getOrCreate()</span><br><span class="line">    <span class="keyword">import</span> spark.sql</span><br><span class="line">    sql(<span class="string">"insert overwrite table sparktest.tbl_dm_od_cust_mid1 "</span> +</span><br><span class="line">      <span class="string">"select "</span> +</span><br><span class="line">      <span class="string">"dm_id,"</span> +</span><br><span class="line">      <span class="string">"a.od_begin_cd,"</span> +</span><br><span class="line">      <span class="string">"a.od_end_cd,"</span> +</span><br><span class="line">      <span class="string">"a.time_id,"</span> +</span><br><span class="line">      <span class="string">"line_id,"</span> +</span><br><span class="line">      <span class="string">"GD_begin_cd,"</span> +</span><br><span class="line">      <span class="string">"gd_end_cd,"</span> +</span><br><span class="line">      <span class="string">"lead(gd_end_cd,1,'0000') over(partition by substr(cast(dm_id as string),1,9) order by run_time) as gd_end_cd_nxt,"</span> +</span><br><span class="line">      <span class="string">"gd_begin_nm,"</span> +</span><br><span class="line">      <span class="string">"gd_end_nm,"</span> +</span><br><span class="line">      <span class="string">"a.time_id+run_time/3 as sta_time_id ,"</span> +</span><br><span class="line">      <span class="string">"a.time_id+max_time/3 end_time_id,"</span> +</span><br><span class="line">      <span class="string">"cast(b.percent*a.cust_rate as float) precent "</span> +</span><br><span class="line">      <span class="string">"from "</span> +</span><br><span class="line">      <span class="string">"sptcc_dm.tbl_dm_od_rate a, "</span> +</span><br><span class="line">      <span class="string">"(select dm_id ,line_id,od_begin_cd,od_end_cd,gd_begin_cd,gd_end_cd ,lead(gd_end_cd,1,'0000') over(partition by substr(cast(dm_id as string),1,9) order by run_time) as gd_end_cd_nxt,gd_begin_nm,gd_end_nm,run_time,percent,max(run_time) over(partition by substr(cast(dm_id as string),1,9)) as max_time "</span> +</span><br><span class="line">            <span class="string">" from sptcc_dpa.tbl_dim_od_dm) b "</span> +</span><br><span class="line">      <span class="string">"where "</span> +</span><br><span class="line">      <span class="string">"a.od_begin_cd=b.od_begin_cd "</span> +</span><br><span class="line">      <span class="string">"and "</span> +</span><br><span class="line">      <span class="string">"a.od_end_cd=b.od_end_cd"</span></span><br><span class="line">    )</span><br><span class="line">    spark.stop()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>pyspark实现代码:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> HiveContext</span><br><span class="line"><span class="keyword">from</span> pyspark.sql <span class="keyword">import</span> SparkSession</span><br><span class="line"><span class="keyword">from</span> pyspark.context <span class="keyword">import</span> SparkContext</span><br><span class="line">spark=SparkSession.builder.master(<span class="string">'yarn'</span>).appName(<span class="string">'test'</span>).config(<span class="string">"spark.hadoop.validateOutputSpecs"</span>, <span class="string">"false"</span>)\</span><br><span class="line">    .config(<span class="string">"spark.sql.parquet.compression.codec"</span>,<span class="string">"gzip"</span>).getOrCreate()</span><br><span class="line">sc = spark.sparkContext</span><br><span class="line">sqlContext = HiveContext(sc)</span><br><span class="line">sqlContext.sql(<span class="string">"""insert overwrite table sparktest.tbl_dm_od_cust_mid1 select </span></span><br><span class="line"><span class="string">    dm_id     </span></span><br><span class="line"><span class="string"> ,a.od_begin_cd</span></span><br><span class="line"><span class="string">    ,a.od_end_cd</span></span><br><span class="line"><span class="string">    ,a.time_id</span></span><br><span class="line"><span class="string">    ,line_id</span></span><br><span class="line"><span class="string">    ,GD_begin_cd</span></span><br><span class="line"><span class="string">    ,gd_end_cd</span></span><br><span class="line"><span class="string">    ,lead(gd_end_cd,1,'0000') over(partition by substr(cast(dm_id as string),1,9) order by run_time) as gd_end_cd_nxt</span></span><br><span class="line"><span class="string">    ,gd_begin_nm</span></span><br><span class="line"><span class="string">    ,gd_end_nm</span></span><br><span class="line"><span class="string">    ,a.time_id+run_time/3 as sta_time_id</span></span><br><span class="line"><span class="string">    ,a.time_id+max_time/3 end_time_id</span></span><br><span class="line"><span class="string">    ,cast(b.percent*a.cust_rate as float) precent</span></span><br><span class="line"><span class="string">from</span></span><br><span class="line"><span class="string">    sptcc_dm.tbl_dm_od_rate a,</span></span><br><span class="line"><span class="string">    (select</span></span><br><span class="line"><span class="string">         dm_id</span></span><br><span class="line"><span class="string">   ,line_id</span></span><br><span class="line"><span class="string">         ,od_begin_cd</span></span><br><span class="line"><span class="string">         ,od_end_cd</span></span><br><span class="line"><span class="string">         ,gd_begin_cd</span></span><br><span class="line"><span class="string">         ,gd_end_cd</span></span><br><span class="line"><span class="string">    ,lead(gd_end_cd,1,'0000') over(partition by substr(cast(dm_id as string),1,9) order by run_time) as gd_end_cd_nxt</span></span><br><span class="line"><span class="string">         ,gd_begin_nm</span></span><br><span class="line"><span class="string">         ,gd_end_nm</span></span><br><span class="line"><span class="string">         ,run_time</span></span><br><span class="line"><span class="string">         ,percent</span></span><br><span class="line"><span class="string">         ,max(run_time) over(partition by substr(cast(dm_id as string),1,9)) as max_time</span></span><br><span class="line"><span class="string">    from sptcc_dpa.tbl_dim_od_dm</span></span><br><span class="line"><span class="string">    ) b</span></span><br><span class="line"><span class="string">where</span></span><br><span class="line"><span class="string">    a.od_begin_cd=b.od_begin_cd</span></span><br><span class="line"><span class="string">    and a.od_end_cd=b.od_end_cd"""</span>).show()</span><br></pre></td></tr></table></figure>
+
+<h3 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h3><p>在本次测试中，只是简单的使用了一下Spark中SQL查询API的使用。实际上并没有体现出Spark的优势。个人觉得Spark的优势在于在一系列的业务处理和查询过程中，可以很方便的把子查询的中间结果大批量的缓存在内存中，这样就给传统的SQL查询带来了很多优化的空间。另外，Spark也可以快速的对处理结果进行RDD编程和流式处理，这样Spark平台就可以支撑起绝大多数业务类型了。</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="测试组件版本"><a href="#测试组件版本" class="headerlink" title="测试组件版本"></a>测试组件版本</h3><ul>
+<li>hadoop:2.6.0</li>
+<li>spark:2.1.0</li>
+<li>hive:1.1.0</li>
+<li>java:1.8</li>
+</ul>
+<h3 id="网页资料"><a href="#网页资料" class="headerlink" title="网页资料"></a>网页资料</h3><ol>
+<li><a href="https://spark.apache.org/docs/2.1.0/sql-programming-guide.html" target="_blank" rel="noopener">Spark-SQL,DataFrames and Datasets 官方文档</a></li>
+<li><a href="https://segmentfault.com/a/1190000002672666" target="_blank" rel="noopener">hadoop HDFS常用文件操作命令</a></li>
+<li><a href="http://blog.javachen.com/2015/06/05/yarn-memory-and-cpu-configuration.html" target="_blank" rel="noopener">YARN的内存和CPU配置</a></li>
+<li><a href="http://blog.javachen.com/categories.html#spark" target="_blank" rel="noopener">JavaChen的博客里面的示例很好</a></li>
+<li><a href="http://blog.csdn.net/sinat_29581293/article/details/62045523" target="_blank" rel="noopener">Spark的一些调优经验</a></li>
+</ol>
+<h3 id="学习中的一些坑"><a href="#学习中的一些坑" class="headerlink" title="学习中的一些坑"></a>学习中的一些坑</h3><ol>
+<li>对于有结果的任务，下一次重新运行时要记得清空结果</li>
+<li>对于输入输出路径最好参数化，本地测试和集群运行使用不同的参数即可</li>
+<li>对于yarn的参数最好不要写死在代码里面，而是在运行的脚本里面附件参数，这样调试更灵活</li>
+<li>编译时要注意各种组件的版本号,本地测试时要配置与集群一致的版本号.</li>
+<li>像我这样对API不熟悉的初学者，测试时应该尽量用spark-shell调试代码原型，在本地编辑器中调试不是很方便。</li>
+<li>要分清Spark中的RDD/DF和DS区别和相互转化。</li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Spark/" rel="tag"># Spark</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/15/利用Docker构建集群并运行WordCount/" rel="next" title="利用Docker构建集群并运行WordCount">
+                <i class="fa fa-chevron-left"></i> 利用Docker构建集群并运行WordCount
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Chengs Luo</p>
+              <div class="site-description motion-element" itemprop="description">"I want to put a ding in the universe. " —— Steve Jobs</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/chengsluo" title="GitHub &rarr; https://github.com/chengsluo" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.douban.com/people/70427926/" title="Douban &rarr; https://www.douban.com/people/70427926/" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>Douban</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/ChengsLuo" title="Twitter &rarr; https://twitter.com/ChengsLuo" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://instagram.com/chengsluo" title="Instagram &rarr; https://instagram.com/chengsluo" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spark简介"><span class="nav-number">1.</span> <span class="nav-text">Spark简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Spark？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Spark？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spark特点"><span class="nav-number">1.2.</span> <span class="nav-text">Spark特点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#运行速度快-Speed"><span class="nav-number">1.2.1.</span> <span class="nav-text">运行速度快(Speed)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#易用性好-Ease-of-Use"><span class="nav-number">1.2.2.</span> <span class="nav-text">易用性好(Ease of Use)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通用型强-generality"><span class="nav-number">1.2.3.</span> <span class="nav-text">通用型强(generality)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#随处运行-Runs-Everywhere"><span class="nav-number">1.2.4.</span> <span class="nav-text">随处运行(Runs Everywhere)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资源调度器YARN"><span class="nav-number">2.</span> <span class="nav-text">资源调度器YARN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#YARN简介"><span class="nav-number">2.1.</span> <span class="nav-text">YARN简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交任务到集群-根据计算类型分配各自参数"><span class="nav-number">2.2.</span> <span class="nav-text">提交任务到集群,根据计算类型分配各自参数:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提前中断任务"><span class="nav-number">2.3.</span> <span class="nav-text">提前中断任务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HIVE和Spark-SQL性能对比"><span class="nav-number">3.</span> <span class="nav-text">HIVE和Spark-SQL性能对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑介绍"><span class="nav-number">3.1.</span> <span class="nav-text">逻辑介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能对比"><span class="nav-number">3.2.</span> <span class="nav-text">性能对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评价"><span class="nav-number">3.3.</span> <span class="nav-text">评价</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">4.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试组件版本"><span class="nav-number">4.1.</span> <span class="nav-text">测试组件版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网页资料"><span class="nav-number">4.2.</span> <span class="nav-text">网页资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习中的一些坑"><span class="nav-number">4.3.</span> <span class="nav-text">学习中的一些坑</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chengs Luo</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://chengsluo.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://chengsluo.github.io/2018/01/10/Spark操作笔记/";
+    this.page.identifier = "2018/01/10/Spark操作笔记/";
+    this.page.title = 'Spark操作笔记';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://chengsluo.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    window.addEventListener('load', loadComments, false);
+  
+</script>
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
