@@ -100,7 +100,7 @@
 <meta name="keywords" content="hadoop,docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用Docker构建集群并运行WordCount">
-<meta property="og:url" content="http://chengsluo.github.io/2017/11/15/利用Docker构建集群并运行WordCount/index.html">
+<meta property="og:url" content="https://chengsluo.github.io/2017/11/15/利用Docker构建集群并运行WordCount/index.html">
 <meta property="og:site_name" content="FaultCode">
 <meta property="og:description" content="Basic ClusterThis repository provides docker configurations for quick Hadoop cluster setup.Provides a 1 Namenode and 2 Datanode setup.How to use: 123$ git clone https://github.com/chengsluo/hadoop-exp">
 <meta property="og:locale" content="en">
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://chengsluo.github.io/2017/11/15/利用Docker构建集群并运行WordCount/">
+  <link rel="canonical" href="https://chengsluo.github.io/2017/11/15/利用Docker构建集群并运行WordCount/">
 
 
 
@@ -311,7 +311,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chengsluo.github.io/2017/11/15/利用Docker构建集群并运行WordCount/">
+    <link itemprop="mainEntityOfPage" href="https://chengsluo.github.io/2017/11/15/利用Docker构建集群并运行WordCount/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chengs Luo">
@@ -381,19 +381,6 @@
           
             
             
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">Comments: </span>
-                <a href="/2017/11/15/利用Docker构建集群并运行WordCount/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/15/利用Docker构建集群并运行WordCount/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -419,31 +406,31 @@
 
       
         <h3 id="Basic-Cluster"><a href="#Basic-Cluster" class="headerlink" title="Basic Cluster"></a>Basic Cluster</h3><p>This repository provides docker configurations for quick Hadoop cluster setup.<br>Provides a 1 <code>Namenode</code> and 2 <code>Datanode</code> setup.<br>How to use:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://github.com/chengsluo/hadoop-expt.git</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> hadoop-expt</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> docker-compose -f hadoop-basic.yml up</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git clone https://github.com/chengsluo/hadoop-expt.git</span><br><span class="line"><span class="meta">$</span> cd hadoop-expt</span><br><span class="line"><span class="meta">$</span> docker-compose -f hadoop-basic.yml up</span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
 <p>Refer this blog post for more details: <a href="http://codito.in/hadoop-cluster-in-docker" target="_blank" rel="noopener">http://codito.in/hadoop-cluster-in-docker</a>.</p>
 <h3 id="Credits"><a href="#Credits" class="headerlink" title="Credits"></a>Credits</h3><p>Many thanks to <a href="https://bitbucket.org/uhopper/hadoop-docker" target="_blank" rel="noopener">uhopper</a> for<br>providing excellent base hadoop images.</p>
 <h3 id="Word-Count-Test"><a href="#Word-Count-Test" class="headerlink" title="Word Count Test"></a>Word Count Test</h3><p>Enter the running namenode container</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker <span class="built_in">exec</span> -it namenode bash</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> docker exec -it namenode bash</span><br></pre></td></tr></table></figure>
 
 <p>Switch to the mount volume directory</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> /hadoop-data</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd /hadoop-data</span><br></pre></td></tr></table></figure>
 
 <p>Create the a project directory in hadoop file system</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hadoop fs -mkdir -p hdfs://namenode:8020/project/wordcount</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> hadoop fs -mkdir -p hdfs://namenode:8020/project/wordcount</span><br></pre></td></tr></table></figure>
 
 <p>Upload the need data to hadoop file system</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hadoop fs -cp marktwain.txt hdfs://namenode:8020/project/wordcount/marktwain.txt</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> hadoop fs -cp marktwain.txt hdfs://namenode:8020/project/wordcount/marktwain.txt</span><br></pre></td></tr></table></figure>
 
 <p>Run the wordCount Application downloaded  from official website</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hadoop jar hadoop-mapreduce-examples-2.8.3.jar wordcount hdfs://namenode:8020/project/wordcount hdfs://namenode:8020/project/wordcount/result</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> hadoop jar hadoop-mapreduce-examples-2.8.3.jar wordcount hdfs://namenode:8020/project/wordcount hdfs://namenode:8020/project/wordcount/result</span><br></pre></td></tr></table></figure>
 
 <p>Pull the result from hadoop file system</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hadoop fs -get /project/wordcount/result</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> hadoop fs -get /project/wordcount/result</span><br></pre></td></tr></table></figure>
 
 <p>You can check the result by any text-editor in your local file system now !</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cat result/part-r-00000</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cat result/part-r-00000</span><br></pre></td></tr></table></figure>
 
 <h3 id="Version"><a href="#Version" class="headerlink" title="Version"></a>Version</h3><p>Hadoop: 2.8.1/2.8.3<br>Java: 1.8</p>
 
@@ -848,21 +835,10 @@
 
   
   
-<script>
-  function loadCount() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://chengsluo.disqus.com/count.js';
-    s.id = 'dsq-count-scr';
-    (d.head || d.body).appendChild(s);
-  }
-  // defer loading until the whole page loading is completed
-  window.addEventListener('load', loadCount, false);
-</script>
-
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://chengsluo.github.io/2017/11/15/利用Docker构建集群并运行WordCount/";
+    this.page.url = "https://chengsluo.github.io/2017/11/15/利用Docker构建集群并运行WordCount/";
     this.page.identifier = "2017/11/15/利用Docker构建集群并运行WordCount/";
     this.page.title = '利用Docker构建集群并运行WordCount';
     };
