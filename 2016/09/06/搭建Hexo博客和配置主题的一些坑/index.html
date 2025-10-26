@@ -1,130 +1,44 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next gemini use-motion" lang="en">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html lang="en">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
+<script class="next-config" data-name="main" type="application/json">{"hostname":"chengsluo.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
-<link rel="stylesheet" href="/css/main.css?v=7.1.2">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.1.2',
-    sidebar: {"position":"left","width":240,"display":"post","offset":25,"onmobile":false,"dimmer":false},
-    back2top: true,
-    back2top_sidebar: false,
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
-
-
-
-
-  <meta name="description" content="今天更新了Hexo版本，并更换了博客主题，在配置这些环境的过程中遇到了一些坑，在此分享一波! 无法更新或生成Hexo 问题:node版本升级得过高，导致与现有运行库不兼容 解决方案:用npm安装n,用n来回顾node版本号  12345sudo npm i -g npmn *.*.*    (切回到*.*.*稳定版本)node -v">
+    <meta name="description" content="今天更新了Hexo版本，并更换了博客主题，在配置这些环境的过程中遇到了一些坑，在此分享一波! 无法更新或生成Hexo 问题:node版本升级得过高，导致与现有运行库不兼容 解决方案:用npm安装n,用n来回顾node版本号  12345sudo npm i -g npmn *.*.*    (切回到*.*.*稳定版本)node -v">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建Hexo博客和配置主题的一些坑">
-<meta property="og:url" content="https://chengsluo.github.io/2016/09/06/搭建Hexo博客和配置主题的一些坑/index.html">
+<meta property="og:url" content="https://chengsluo.github.io/2016/09/06/%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2%E5%92%8C%E9%85%8D%E7%BD%AE%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/index.html">
 <meta property="og:site_name" content="FaultCode">
 <meta property="og:description" content="今天更新了Hexo版本，并更换了博客主题，在配置这些环境的过程中遇到了一些坑，在此分享一波! 无法更新或生成Hexo 问题:node版本升级得过高，导致与现有运行库不兼容 解决方案:用npm安装n,用n来回顾node版本号  12345sudo npm i -g npmn *.*.*    (切回到*.*.*稳定版本)node -v">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-03-06T15:44:01.829Z">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-09-06T15:15:37.000Z">
+<meta property="article:modified_time" content="2018-03-06T15:44:01.000Z">
+<meta property="article:author" content="Chengs Luo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="搭建Hexo博客和配置主题的一些坑">
-<meta name="twitter:description" content="今天更新了Hexo版本，并更换了博客主题，在配置这些环境的过程中遇到了一些坑，在此分享一波! 无法更新或生成Hexo 问题:node版本升级得过高，导致与现有运行库不兼容 解决方案:用npm安装n,用n来回顾node版本号  12345sudo npm i -g npmn *.*.*    (切回到*.*.*稳定版本)node -v">
 
 
+<link rel="canonical" href="https://chengsluo.github.io/2016/09/06/%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2%E5%92%8C%E9%85%8D%E7%BD%AE%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/">
 
 
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://chengsluo.github.io/2016/09/06/%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2%E5%92%8C%E9%85%8D%E7%BD%AE%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/","path":"2016/09/06/搭建Hexo博客和配置主题的一些坑/","title":"搭建Hexo博客和配置主题的一些坑"}</script>
 
-  
-  
-  <link rel="canonical" href="https://chengsluo.github.io/2016/09/06/搭建Hexo博客和配置主题的一些坑/">
-
-
-
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>搭建Hexo博客和配置主题的一些坑 | FaultCode</title>
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>搭建Hexo博客和配置主题的一些坑 | FaultCode</title>
   
 
 
@@ -133,751 +47,281 @@
 
 
 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
 
 
 
 
 
   <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">FaultCode</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
-    
-      
-        <p class="site-subtitle">记录所思所想</p>
-      
-    
-    
   </div>
 
-  <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">FaultCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录所思所想</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
   </div>
 </div>
 
 
 
 <nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
-
-  </li>
-
-      
-      
-    </ul>
-  
-
-  
-
-  
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
 </nav>
 
 
 
+
+</header>
+        
   
+  <aside class="sidebar">
 
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
 
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0%E6%B3%95%E6%9B%B4%E6%96%B0%E6%88%96%E7%94%9F%E6%88%90Hexo"><span class="nav-number">1.</span> <span class="nav-text">无法更新或生成Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0Next%E4%B8%BB%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">添加Next主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E6%96%87%E6%A1%A3%E5%88%86%E5%88%ABHexo%E5%92%8CNext%E4%B8%AD%E7%9A%84-config-yml"><span class="nav-number">3.</span> <span class="nav-text">按照文档分别Hexo和Next中的_config.yml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">4.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
 
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Chengs Luo</p>
+  <div class="site-description" itemprop="description">"I want to put a ding in the universe. " —— Steve Jobs</div>
 </div>
-    </header>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/chengsluo" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;chengsluo" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/chengsluo" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;chengsluo" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
 
     
+  </aside>
 
 
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-            
+    </div>
 
-          
-          <div id="content" class="content">
-            
+    <div class="main-inner post posts-expand">
 
-  <div id="posts" class="posts-expand">
-    
 
   
 
-  
+
+<div class="post-block">
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chengsluo.github.io/2016/09/06/搭建Hexo博客和配置主题的一些坑/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://chengsluo.github.io/2016/09/06/%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2%E5%92%8C%E9%85%8D%E7%BD%AE%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chengs Luo">
-      <meta itemprop="description" content i want to put a ding in the universe. " —— steve jobs">
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Chengs Luo">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="FaultCode">
+      <meta itemprop="description" content=""I want to put a ding in the universe. " —— Steve Jobs">
     </span>
 
-    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="搭建Hexo博客和配置主题的一些坑 | FaultCode">
+      <meta itemprop="description" content="">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">搭建Hexo博客和配置主题的一些坑
-
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2016-09-06 23:15:37" itemprop="dateCreated datePublished" datetime="2016-09-06T23:15:37+08:00">2016-09-06</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-03-06 23:44:01" itemprop="dateModified" datetime="2018-03-06T23:44:01+08:00">2018-03-06</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>今天更新了Hexo版本，并更换了博客主题，在配置这些环境的过程中遇到了一些坑，在此分享一波!</p>
-<h2 id="无法更新或生成Hexo"><a href="#无法更新或生成Hexo" class="headerlink" title="无法更新或生成Hexo"></a>无法更新或生成Hexo</h2><ul>
-<li>问题:node版本升级得过高，导致与现有运行库不兼容</li>
-<li>解决方案:用npm安装n,用n来回顾node版本号</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo npm i -g npm</span><br><span class="line"></span><br><span class="line">n *.*.*    (切回到*.*.*稳定版本)</span><br><span class="line"></span><br><span class="line">node -v</span><br></pre></td></tr></table></figure>
-
-<a id="more"></a>
-<h2 id="添加Next主题"><a href="#添加Next主题" class="headerlink" title="添加Next主题"></a>添加Next主题</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir themes/next</span><br><span class="line"></span><br><span class="line">curl -s https://api.github.com/repos/iissnan/hexo-theme-next/releases/latest | grep tarball_url | cut -d <span class="string">'"'</span> -f 4 | wget -i - -O- | tar -zx -C themes/next --strip-components=1</span><br></pre></td></tr></table></figure>
-
-<h2 id="按照文档分别Hexo和Next中的-config-yml"><a href="#按照文档分别Hexo和Next中的-config-yml" class="headerlink" title="按照文档分别Hexo和Next中的_config.yml"></a>按照文档分别Hexo和Next中的_config.yml</h2><p>注意:后面有一个空格。下面是我的一些配置项</p>
-<ul>
-<li><p>Hexo</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sidebar: </span><br><span class="line"> offset: 16</span><br><span class="line"></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: ssh://git@github.com/chengsluo/chengsluo.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Next</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scheme: Gemini</span><br><span class="line"></span><br><span class="line">mathjax:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 编写文档</span></span><br><span class="line">hexo new &lt;title&gt;</span><br><span class="line"><span class="comment">## 重新生成</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line"><span class="comment">## 调试预览</span></span><br><span class="line">hexo server</span><br><span class="line"><span class="comment">## 调试完成后再发布</span></span><br><span class="line">hexo deploy</span><br><span class="line"><span class="comment">## 一键发布</span></span><br><span class="line">hexo clean &amp;&amp; hexo generate --deploy</span><br><span class="line"></span><br><span class="line"><span class="comment">## 添加远程git部署支持</span></span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line"><span class="comment">## 启用本地搜索</span></span><br><span class="line">npm install hexo-generator-search --save</span><br><span class="line"><span class="comment">## 摘要与正文分割</span></span><br><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>hexo官方文档<br><a href="https://hexo.io/zh-tw/index.html" target="_blank" rel="noopener">https://hexo.io/zh-tw/index.html</a></p>
-<p>Hexo博客使用MathJax公式并解决Markdown渲染冲突问题<br><a href="https://zhuanlan.zhihu.com/p/33857596" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/33857596</a></p>
-<p>NexT主题<br><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a></p>
-<p>Node version management<br><a href="https://github.com/tj/n" target="_blank" rel="noopener">https://github.com/tj/n</a></p>
-
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/03/06/Git分支管理与多人协作/" rel="next" title="Git分支管理与多人协作">
-                <i class="fa fa-chevron-left"></i> Git分支管理与多人协作
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/06/走自己的路，玩自己的扫雷/" rel="prev" title="走自己的路，玩自己的扫雷">
-                走自己的路，玩自己的扫雷 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-  </div>
-
-
-          </div>
-          
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-      </div>
-    </div>
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">Chengs Luo</p>
-              <div class="site-description motion-element" itemprop="description">"I want to put a ding in the universe. " —— Steve Jobs</div>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">7</span>
-                    <span class="site-state-item-name">posts</span>
-                  </a>
-                </div>
-              
-
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                      <a href="/tags/">
-                    
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">tags</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/chengsluo" title="GitHub &rarr; https://github.com/chengsluo" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://www.douban.com/people/70427926/" title="Douban &rarr; https://www.douban.com/people/70427926/" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>Douban</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://twitter.com/ChengsLuo" title="Twitter &rarr; https://twitter.com/ChengsLuo" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://instagram.com/chengsluo" title="Instagram &rarr; https://instagram.com/chengsluo" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
-                </span>
-              
-            </div>
-          
-
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </div>
-
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#无法更新或生成Hexo"><span class="nav-number">1.</span> <span class="nav-text">无法更新或生成Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加Next主题"><span class="nav-number">2.</span> <span class="nav-text">添加Next主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按照文档分别Hexo和Next中的-config-yml"><span class="nav-number">3.</span> <span class="nav-text">按照文档分别Hexo和Next中的_config.yml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">4.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-  
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Chengs Luo</span>
-
-  
+        <h1 class="post-title" itemprop="name headline">
+          搭建Hexo博客和配置主题的一些坑
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-09-06 23:15:37" itemprop="dateCreated datePublished" datetime="2016-09-06T23:15:37+08:00">2016-09-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2018-03-06 23:44:01" itemprop="dateModified" datetime="2018-03-06T23:44:01+08:00">2018-03-06</time>
+    </span>
 
   
 </div>
 
+        </div>
+      </header>
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>今天更新了Hexo版本，并更换了博客主题，在配置这些环境的过程中遇到了一些坑，在此分享一波!</p>
+<h2 id="无法更新或生成Hexo"><a href="#无法更新或生成Hexo" class="headerlink" title="无法更新或生成Hexo"></a>无法更新或生成Hexo</h2><ul>
+<li>问题:node版本升级得过高，导致与现有运行库不兼容</li>
+<li>解决方案:用npm安装n,用n来回顾node版本号</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> npm i -g npm</span><br><span class="line"></span><br><span class="line">n *.*.*    (切回到*.*.*稳定版本)</span><br><span class="line"></span><br><span class="line">node -v</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="添加Next主题"><a href="#添加Next主题" class="headerlink" title="添加Next主题"></a>添加Next主题</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> themes/next</span><br><span class="line"></span><br><span class="line">curl -s https://api.github.com/repos/iissnan/hexo-theme-next/releases/latest | grep tarball_url | <span class="built_in">cut</span> -d <span class="string">&#x27;&quot;&#x27;</span> -f 4 | wget -i - -O- | tar -zx -C themes/next --strip-components=1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="按照文档分别Hexo和Next中的-config-yml"><a href="#按照文档分别Hexo和Next中的-config-yml" class="headerlink" title="按照文档分别Hexo和Next中的_config.yml"></a>按照文档分别Hexo和Next中的_config.yml</h2><p>注意:后面有一个空格。下面是我的一些配置项</p>
+<ul>
+<li>Hexo<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sidebar: </span><br><span class="line"> offset: 16</span><br><span class="line"></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: ssh://git@github.com/chengsluo/chengsluo.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></li>
+<li>Next<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scheme: Gemini</span><br><span class="line"></span><br><span class="line">mathjax:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 编写文档</span></span><br><span class="line">hexo new &lt;title&gt;</span><br><span class="line"><span class="comment">## 重新生成</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line"><span class="comment">## 调试预览</span></span><br><span class="line">hexo server</span><br><span class="line"><span class="comment">## 调试完成后再发布</span></span><br><span class="line">hexo deploy</span><br><span class="line"><span class="comment">## 一键发布</span></span><br><span class="line">hexo clean &amp;&amp; hexo generate --deploy</span><br><span class="line"></span><br><span class="line"><span class="comment">## 添加远程git部署支持</span></span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line"><span class="comment">## 启用本地搜索</span></span><br><span class="line">npm install hexo-generator-search --save</span><br><span class="line"><span class="comment">## 摘要与正文分割</span></span><br><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>hexo官方文档<br><a href="https://hexo.io/zh-tw/index.html">https://hexo.io/zh-tw/index.html</a></p>
+<p>Hexo博客使用MathJax公式并解决Markdown渲染冲突问题<br><a href="https://zhuanlan.zhihu.com/p/33857596">https://zhuanlan.zhihu.com/p/33857596</a></p>
+<p>NexT主题<br><a href="https://github.com/iissnan/hexo-theme-next">https://github.com/iissnan/hexo-theme-next</a></p>
+<p>Node version management<br><a href="https://github.com/tj/n">https://github.com/tj/n</a></p>
 
+    </div>
 
+    
+    
+    
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.2</div>
-
-
-
+    <footer class="post-footer">
 
         
 
-
-
-
-
-
-
-
-        
-      </div>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/03/06/Git%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86%E4%B8%8E%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C/" rel="prev" title="Git分支管理与多人协作">
+                  <i class="fa fa-angle-left"></i> Git分支管理与多人协作
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/11/06/%E8%B5%B0%E8%87%AA%E5%B7%B1%E7%9A%84%E8%B7%AF%EF%BC%8C%E7%8E%A9%E8%87%AA%E5%B7%B1%E7%9A%84%E6%89%AB%E9%9B%B7/" rel="next" title="走自己的路，玩自己的扫雷">
+                  走自己的路，玩自己的扫雷 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
     </footer>
+  </article>
+</div>
+
+
+
+
+
 
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
 
-    
+  <footer class="footer">
+    <div class="footer-inner">
 
-    
-
-    
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chengs Luo</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
 
-  
-
-<script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </div>
+  </footer>
 
   
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
 
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/utils.js?v=7.1.2"></script>
-
-  <script src="/js/motion.js?v=7.1.2"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/affix.js?v=7.1.2"></script>
-
-  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
-
-
-
-
-  
-  <script src="/js/scrollspy.js?v=7.1.2"></script>
-<script src="/js/post-details.js?v=7.1.2"></script>
-
-
-
-  
-
-
-  <script src="/js/next-boot.js?v=7.1.2"></script>
-
-
-  
-
-  
-
-  
-
-  
-  
-
-<script>
-  var disqus_config = function() {
-    this.page.url = "https://chengsluo.github.io/2016/09/06/搭建Hexo博客和配置主题的一些坑/";
-    this.page.identifier = "2016/09/06/搭建Hexo博客和配置主题的一些坑/";
-    this.page.title = '搭建Hexo博客和配置主题的一些坑';
-    };
-  function loadComments() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://chengsluo.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', '' + +new Date());
-    (d.head || d.body).appendChild(s);
-  }
-  
-    window.addEventListener('load', loadComments, false);
-  
-</script>
-
-
-
-
-
-  
-
-
-  
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"chengsluo","count":false,"lazyload":false,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js" defer></script>
 
 </body>
 </html>

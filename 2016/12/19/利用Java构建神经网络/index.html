@@ -1,130 +1,44 @@
 <!DOCTYPE html>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-<html class="theme-next gemini use-motion" lang="en">
-<head><meta name="generator" content="Hexo 3.8.0">
+<html lang="en">
+<head>
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
+<script class="next-config" data-name="main" type="application/json">{"hostname":"chengsluo.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
-<link rel="stylesheet" href="/css/main.css?v=7.1.2">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
-
-
-
-
-
-
-
-<script id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.1.2',
-    sidebar: {"position":"left","width":240,"display":"post","offset":25,"onmobile":false,"dimmer":false},
-    back2top: true,
-    back2top_sidebar: false,
-    fancybox: false,
-    fastclick: false,
-    lazyload: false,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-  
-
-
-
-
-  <meta name="description" content="简介神经网络模型也被称为人工神经网络(Artificial Neural Network,ANN),它是一类非线性模型，用来在给定输入变量集合的情况下，对输出进行预测。其最早的例子可以追溯到20世纪40年代早期，当时用它来解决分类问题。可以说，它是一类非线性的回归方法。最近几年在深度学习中应用很广泛，本篇文章抱着学习其原理的心态，参考书籍，力图用Java语言实现一个神经网络。 由于网上有太多介绍神">
+    <meta name="description" content="简介神经网络模型也被称为人工神经网络(Artificial Neural Network,ANN),它是一类非线性模型，用来在给定输入变量集合的情况下，对输出进行预测。其最早的例子可以追溯到20世纪40年代早期，当时用它来解决分类问题。可以说，它是一类非线性的回归方法。最近几年在深度学习中应用很广泛，本篇文章抱着学习其原理的心态，参考书籍，力图用Java语言实现一个神经网络。 由于网上有太多介绍神">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用Java构建神经网络">
-<meta property="og:url" content="https://chengsluo.github.io/2016/12/19/利用Java构建神经网络/index.html">
+<meta property="og:url" content="https://chengsluo.github.io/2016/12/19/%E5%88%A9%E7%94%A8Java%E6%9E%84%E5%BB%BA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.html">
 <meta property="og:site_name" content="FaultCode">
 <meta property="og:description" content="简介神经网络模型也被称为人工神经网络(Artificial Neural Network,ANN),它是一类非线性模型，用来在给定输入变量集合的情况下，对输出进行预测。其最早的例子可以追溯到20世纪40年代早期，当时用它来解决分类问题。可以说，它是一类非线性的回归方法。最近几年在深度学习中应用很广泛，本篇文章抱着学习其原理的心态，参考书籍，力图用Java语言实现一个神经网络。 由于网上有太多介绍神">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-03-21T09:10:56.000Z">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-12-19T12:11:42.000Z">
+<meta property="article:modified_time" content="2018-03-21T09:10:56.000Z">
+<meta property="article:author" content="Chengs Luo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用Java构建神经网络">
-<meta name="twitter:description" content="简介神经网络模型也被称为人工神经网络(Artificial Neural Network,ANN),它是一类非线性模型，用来在给定输入变量集合的情况下，对输出进行预测。其最早的例子可以追溯到20世纪40年代早期，当时用它来解决分类问题。可以说，它是一类非线性的回归方法。最近几年在深度学习中应用很广泛，本篇文章抱着学习其原理的心态，参考书籍，力图用Java语言实现一个神经网络。 由于网上有太多介绍神">
 
 
+<link rel="canonical" href="https://chengsluo.github.io/2016/12/19/%E5%88%A9%E7%94%A8Java%E6%9E%84%E5%BB%BA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
 
 
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://chengsluo.github.io/2016/12/19/%E5%88%A9%E7%94%A8Java%E6%9E%84%E5%BB%BA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/","path":"2016/12/19/利用Java构建神经网络/","title":"利用Java构建神经网络"}</script>
 
-  
-  
-  <link rel="canonical" href="https://chengsluo.github.io/2016/12/19/利用Java构建神经网络/">
-
-
-
-<script id="page.configurations">
-  CONFIG.page = {
-    sidebar: "",
-  };
-</script>
-
-  <title>利用Java构建神经网络 | FaultCode</title>
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>利用Java构建神经网络 | FaultCode</title>
   
 
 
@@ -133,755 +47,291 @@
 
 
 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
 
 
 
 
 
   <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">FaultCode</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
-    
-      
-        <p class="site-subtitle">记录所思所想</p>
-      
-    
-    
   </div>
 
-  <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">FaultCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录所思所想</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
   </div>
 </div>
 
 
 
 <nav class="site-nav">
-  
-    <ul id="menu" class="menu">
-      
-        
-        
-        
-          
-          <li class="menu-item menu-item-home">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
-
-  </li>
-
-      
-      
-    </ul>
-  
-
-  
-
-  
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+  </ul>
 </nav>
 
 
 
+
+</header>
+        
   
+  <aside class="sidebar">
 
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
 
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8BANN"><span class="nav-number">2.</span> <span class="nav-text">建立ANN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.</span> <span class="nav-text">构造激活函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E5%8D%95%E5%B1%82"><span class="nav-number">2.2.</span> <span class="nav-text">构建单层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%84%E7%BB%87%E6%88%90%E7%BD%91%E7%BB%9C"><span class="nav-number">2.3.</span> <span class="nav-text">组织成网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E5%8D%87%E6%80%A7%E8%83%BD-%E5%88%A9%E7%94%A8%E5%86%B2%E9%87%8F%E6%9E%84%E9%80%A0%E5%8D%95%E5%B1%82"><span class="nav-number">2.4.</span> <span class="nav-text">提升性能(利用冲量构造单层)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95ANN"><span class="nav-number">3.</span> <span class="nav-text">测试ANN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E5%BC%82%E6%88%96%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.1.</span> <span class="nav-text">训练一个异或模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E6%B5%8B%E8%AF%95"><span class="nav-number">3.2.</span> <span class="nav-text">时间序列测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%B2%E9%87%8F%E5%B1%82%E5%8A%A0%E9%80%9F%E6%B5%8B%E8%AF%95"><span class="nav-number">3.3.</span> <span class="nav-text">冲量层加速测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
 
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Chengs Luo</p>
+  <div class="site-description" itemprop="description">"I want to put a ding in the universe. " —— Steve Jobs</div>
 </div>
-    </header>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/chengsluo" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;chengsluo" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/chengsluo" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;chengsluo" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
 
     
+  </aside>
 
 
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-            
+    </div>
 
-          
-          <div id="content" class="content">
-            
+    <div class="main-inner post posts-expand">
 
-  <div id="posts" class="posts-expand">
-    
 
   
 
-  
+
+<div class="post-block">
   
   
 
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://chengsluo.github.io/2016/12/19/利用Java构建神经网络/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://chengsluo.github.io/2016/12/19/%E5%88%A9%E7%94%A8Java%E6%9E%84%E5%BB%BA%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chengs Luo">
-      <meta itemprop="description" content i want to put a ding in the universe. " —— steve jobs">
       <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Chengs Luo">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="FaultCode">
+      <meta itemprop="description" content=""I want to put a ding in the universe. " —— Steve Jobs">
     </span>
 
-    
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="利用Java构建神经网络 | FaultCode">
+      <meta itemprop="description" content="">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          利用Java构建神经网络
+        </h1>
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">利用Java构建神经网络
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
 
-              
-            
-          </h1>
-        
+      <time title="Created: 2016-12-19 20:11:42" itemprop="dateCreated datePublished" datetime="2016-12-19T20:11:42+08:00">2016-12-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2018-03-21 17:10:56" itemprop="dateModified" datetime="2018-03-21T17:10:56+08:00">2018-03-21</time>
+    </span>
 
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2016-12-19 20:11:42" itemprop="dateCreated datePublished" datetime="2016-12-19T20:11:42+08:00">2016-12-19</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-03-21 17:10:56" itemprop="dateModified" datetime="2018-03-21T17:10:56+08:00">2018-03-21</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
+  
+</div>
 
         </div>
       </header>
-    
 
     
     
     
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>神经网络模型也被称为人工神经网络(Artificial Neural Network,ANN),它是一类非线性模型，用来在给定输入变量集合的情况下，对输出进行预测。其最早的例子可以追溯到20世纪40年代早期，当时用它来解决分类问题。可以说，它是一类非线性的回归方法。最近几年在深度学习中应用很广泛，本篇文章抱着学习其原理的心态，参考书籍，力图用Java语言实现一个神经网络。</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>神经网络模型也被称为人工神经网络(Artificial Neural Network,ANN),它是一类非线性模型，用来在给定输入变量集合的情况下，对输出进行预测。其最早的例子可以追溯到20世纪40年代早期，当时用它来解决分类问题。可以说，它是一类非线性的回归方法。最近几年在深度学习中应用很广泛，本篇文章抱着学习其原理的心态，参考书籍，力图用Java语言实现一个神经网络。</p>
 <p>由于网上有太多介绍神经网络的文章，这里对它的原理这种关键点描述，不在展开他们的细节，直接探究其实现方法，如果不了解这些知识点请自行Google。</p>
 <ul>
 <li>多层前向传播网络</li>
 <li>激活函数</li>
 <li>反向传播算法(Backpropagation Algorithm)</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="建立ANN"><a href="#建立ANN" class="headerlink" title="建立ANN"></a>建立ANN</h2><h3 id="构造激活函数"><a href="#构造激活函数" class="headerlink" title="构造激活函数"></a>构造激活函数</h3><p>这里主要使用Simgod和tanh函数，主要是因为他们的范围可控，并且导数易求(神经网络中的导数往往要简单到可以由f(x)求得，主要是因为f(x)的值常常被记录下来，利用将极大提高效率)。也可以自己实现一个激活函数。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.chengsluo.ann;</span><br><span class="line"><span class="comment">//将加权和映射到某个固定范围，如[-1,1];</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Activation</span> </span>&#123;</span><br><span class="line">	<span class="comment">//激活函数</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">double</span> <span class="title">f</span><span class="params">(<span class="keyword">double</span> x)</span></span>;</span><br><span class="line">	<span class="comment">//激活函数的导数，这是在反向传播过程中必须要用到的。</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">double</span> <span class="title">df</span><span class="params">(<span class="keyword">double</span> x)</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//后面的一部分是Sigmod函数的具体实现</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//sigmod(k,x)函数的实现1/(1+e^(-k*x))，其中k控制函数值从正变为负的变化速率</span></span><br><span class="line">	<span class="comment">//可以推到其导数为k*f(x)*(1-f(x))</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Activation <span class="title">logit</span><span class="params">(<span class="keyword">final</span> <span class="keyword">double</span> k)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Activation() &#123;</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">f</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="number">1.0</span>/(<span class="number">1.0</span> + Math.exp(-k*x));</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">df</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123;</span><br><span class="line">				x = f(x);</span><br><span class="line">				<span class="keyword">return</span> k*x*(<span class="number">1.0</span>-x);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Activation <span class="title">sigmoid</span><span class="params">(<span class="keyword">double</span> k)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> logit(k);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//默认k=1.0</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Activation <span class="title">logit</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> logit(<span class="number">1.0</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Activation <span class="title">sigmoid</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> logit();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//双曲正切函数</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Activation <span class="title">tanh</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Activation() &#123;</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">f</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123;</span><br><span class="line">				<span class="keyword">return</span> Math.tanh(x);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//(tanh(x))'=1-tanh(x)^2;</span></span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">df</span><span class="params">(<span class="keyword">double</span> x)</span> </span>&#123;</span><br><span class="line">				x = f(x);</span><br><span class="line">				<span class="keyword">return</span> <span class="number">1.0</span> - x*x;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.chengsluo.ann;</span><br><span class="line"><span class="comment">//将加权和映射到某个固定范围，如[-1,1];</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Activation</span> &#123;</span><br><span class="line">	<span class="comment">//激活函数</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">abstract</span> <span class="type">double</span> <span class="title function_">f</span><span class="params">(<span class="type">double</span> x)</span>;</span><br><span class="line">	<span class="comment">//激活函数的导数，这是在反向传播过程中必须要用到的。</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">abstract</span> <span class="type">double</span> <span class="title function_">df</span><span class="params">(<span class="type">double</span> x)</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//后面的一部分是Sigmod函数的具体实现</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//sigmod(k,x)函数的实现1/(1+e^(-k*x))，其中k控制函数值从正变为负的变化速率</span></span><br><span class="line">	<span class="comment">//可以推到其导数为k*f(x)*(1-f(x))</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> Activation <span class="title function_">logit</span><span class="params">(<span class="keyword">final</span> <span class="type">double</span> k)</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Activation</span>() &#123;</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="keyword">public</span> <span class="type">double</span> <span class="title function_">f</span><span class="params">(<span class="type">double</span> x)</span> &#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="number">1.0</span>/(<span class="number">1.0</span> + Math.exp(-k*x));</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="keyword">public</span> <span class="type">double</span> <span class="title function_">df</span><span class="params">(<span class="type">double</span> x)</span> &#123;</span><br><span class="line">				x = f(x);</span><br><span class="line">				<span class="keyword">return</span> k*x*(<span class="number">1.0</span>-x);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> Activation <span class="title function_">sigmoid</span><span class="params">(<span class="type">double</span> k)</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> logit(k);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//默认k=1.0</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> Activation <span class="title function_">logit</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> logit(<span class="number">1.0</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> Activation <span class="title function_">sigmoid</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> logit();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//双曲正切函数</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> Activation <span class="title function_">tanh</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Activation</span>() &#123;</span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="keyword">public</span> <span class="type">double</span> <span class="title function_">f</span><span class="params">(<span class="type">double</span> x)</span> &#123;</span><br><span class="line">				<span class="keyword">return</span> Math.tanh(x);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//(tanh(x))&#x27;=1-tanh(x)^2;</span></span><br><span class="line">			<span class="meta">@Override</span></span><br><span class="line">			<span class="keyword">public</span> <span class="type">double</span> <span class="title function_">df</span><span class="params">(<span class="type">double</span> x)</span> &#123;</span><br><span class="line">				x = f(x);</span><br><span class="line">				<span class="keyword">return</span> <span class="number">1.0</span> - x*x;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="构建单层"><a href="#构建单层" class="headerlink" title="构建单层"></a>构建单层</h3><p>这里在构建网络层的时候，为了简化起见，给每一个层配置了相同的激活函数，这常常是默认的做法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.chengsluo.ann;</span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Layer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//打印方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">printVec</span><span class="params">(<span class="keyword">double</span>[] x)</span> </span>&#123;</span><br><span class="line">		StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">		sb.append(<span class="string">"&#123;"</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;x.length;i++) &#123; <span class="keyword">if</span>(i &gt; <span class="number">0</span>) sb.append(<span class="string">","</span>);sb.append(x[i]); &#125;</span><br><span class="line">		sb.append(<span class="string">"&#125;"</span>);</span><br><span class="line">		<span class="keyword">return</span> sb.toString();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">double</span>[]   v;</span><br><span class="line">	<span class="keyword">double</span>[][] w;</span><br><span class="line">	<span class="keyword">double</span>[]   bW = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">	Activation fn;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//构造函数</span></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> units 本层节点个数</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> inputs 与每个节点连接的输入节点的个数</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> fn 本层所用的激活函数</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> bias 是否使用bias</span></span><br><span class="line"><span class="comment">	 *</span></span><br><span class="line"><span class="comment">	 * */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Layer</span><span class="params">(<span class="keyword">int</span> units,<span class="keyword">int</span> inputs,Activation fn,<span class="keyword">boolean</span> bias)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.fn = fn;</span><br><span class="line">		v   = <span class="keyword">new</span> <span class="keyword">double</span>[units];</span><br><span class="line">		w = <span class="keyword">new</span> <span class="keyword">double</span>[units][];</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;v.length;i++) w[i] = <span class="keyword">new</span> <span class="keyword">double</span>[inputs];</span><br><span class="line">		<span class="keyword">if</span>(bias)</span><br><span class="line">			bW = <span class="keyword">new</span> <span class="keyword">double</span>[units];</span><br><span class="line">		err = <span class="keyword">new</span> <span class="keyword">double</span>[units];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//返回本层网络节点数</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">units</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> v.length; &#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">double</span>[] value()  &#123; <span class="keyword">return</span> v; &#125;</span><br><span class="line">	<span class="keyword">double</span>[]   err;</span><br><span class="line">	<span class="comment">//记录反向传播时，本层节点的所有误差的平方和</span></span><br><span class="line">	<span class="keyword">double</span>     E;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">double</span>[] errors() &#123; <span class="keyword">return</span> err; &#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">double</span>[] feed(<span class="keyword">double</span>[] x) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;v.length;i++) &#123;</span><br><span class="line">			<span class="keyword">double</span>[] W = w[i];</span><br><span class="line">			v[i] = bW != <span class="keyword">null</span> ? bW[i] : <span class="number">0.0</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;W.length;j++)</span><br><span class="line">				v[i] += W[j]*x[j];</span><br><span class="line">			<span class="comment">//将当前节点值更新为权重乘以对应输入的总和.</span></span><br><span class="line">			<span class="comment">//并用激活函数归一化</span></span><br><span class="line">			v[i] = fn.f(v[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//这里的v[i]是上一层节点共同作用的结果。影响率为w[j].</span></span><br><span class="line">		<span class="keyword">return</span> v;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">double</span>[] backprop(<span class="keyword">double</span>[] s) &#123;</span><br><span class="line">		<span class="keyword">double</span>[] out = <span class="keyword">new</span> <span class="keyword">double</span>[w[<span class="number">0</span>].length];</span><br><span class="line">		E = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;v.length;i++) &#123;</span><br><span class="line">			err[i] = fn.df(v[i])*s[i];</span><br><span class="line">			<span class="comment">//期望值与真实值的偏差-&gt;s[i]与此点的导数的乘积</span></span><br><span class="line">			<span class="comment">//同等偏差情况下，导数越大，误差err越大</span></span><br><span class="line">			E += err[i]*err[i];</span><br><span class="line">			<span class="keyword">double</span>[] W = w[i];</span><br><span class="line">			<span class="comment">//根据前一层节点对本节点的贡献率来给前一层节点的对应位置制造反向传播的输入</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;W.length;j++) out[j] += W[j]*err[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//这里的out[i]是本层所有节点共同作用的结果</span></span><br><span class="line">		<span class="keyword">return</span> out;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/* backprop与feed不同的地方是：</span></span><br><span class="line"><span class="comment">	 *</span></span><br><span class="line"><span class="comment">	 * feed传入的是函数值，输出的也是函数值</span></span><br><span class="line"><span class="comment">	 * backprop传入的是偏差值，但会经过df处理，</span></span><br><span class="line"><span class="comment">	 * 按照复合函数的链式法则，处理后的结果仍然是内层函数的偏差值，</span></span><br><span class="line"><span class="comment">	 * 所以可以继续传递到前一层。</span></span><br><span class="line"><span class="comment">	 *</span></span><br><span class="line"><span class="comment">	 * */</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">error</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> E; &#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">double</span>[] update(<span class="keyword">double</span>[] o,<span class="keyword">double</span> r) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;v.length;i++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(bW != <span class="keyword">null</span>)</span><br><span class="line">				bW[i] += r*err[i];</span><br><span class="line"></span><br><span class="line">			<span class="keyword">double</span>[] W = w[i];</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;W.length;j++)</span><br><span class="line">				W[j] += r*err[i]*o[j];</span><br><span class="line">			<span class="comment">//权重的增加值为:上一层的输出与连接位的对应误差err再乘以学习率的乘积的和。</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//误差越大权重每轮增加越大，学习率越大，权重增加越快。</span></span><br><span class="line">		<span class="keyword">return</span> v;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//随机构建初始值[-1,1]</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initialize</span><span class="params">(Random rng)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;v.length;i++) &#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;w[i].length;j++)</span><br><span class="line">				w[i][j] = <span class="number">2</span>*rng.nextDouble() - <span class="number">1</span>;</span><br><span class="line">			bW[i] = <span class="number">2</span>*rng.nextDouble() - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initialize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		initialize(<span class="keyword">new</span> Random());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.chengsluo.ann;</span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Layer</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//打印方法</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">printVec</span><span class="params">(<span class="type">double</span>[] x)</span> &#123;</span><br><span class="line">		<span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">		sb.append(<span class="string">&quot;&#123;&quot;</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;x.length;i++) &#123; <span class="keyword">if</span>(i &gt; <span class="number">0</span>) sb.append(<span class="string">&quot;,&quot;</span>);sb.append(x[i]); &#125;</span><br><span class="line">		sb.append(<span class="string">&quot;&#125;&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> sb.toString();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="type">double</span>[]   v;</span><br><span class="line">	<span class="type">double</span>[][] w;</span><br><span class="line">	<span class="type">double</span>[]   bW = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">	Activation fn;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//构造函数</span></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> units 本层节点个数</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> inputs 与每个节点连接的输入节点的个数</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> fn 本层所用的激活函数</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> bias 是否使用bias</span></span><br><span class="line"><span class="comment">	 *</span></span><br><span class="line"><span class="comment">	 * */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">Layer</span><span class="params">(<span class="type">int</span> units,<span class="type">int</span> inputs,Activation fn,<span class="type">boolean</span> bias)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.fn = fn;</span><br><span class="line">		v   = <span class="keyword">new</span> <span class="title class_">double</span>[units];</span><br><span class="line">		w = <span class="keyword">new</span> <span class="title class_">double</span>[units][];</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;v.length;i++) w[i] = <span class="keyword">new</span> <span class="title class_">double</span>[inputs];</span><br><span class="line">		<span class="keyword">if</span>(bias)</span><br><span class="line">			bW = <span class="keyword">new</span> <span class="title class_">double</span>[units];</span><br><span class="line">		err = <span class="keyword">new</span> <span class="title class_">double</span>[units];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//返回本层网络节点数</span></span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span> <span class="title function_">units</span><span class="params">()</span> &#123; <span class="keyword">return</span> v.length; &#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="type">double</span>[] value()  &#123; <span class="keyword">return</span> v; &#125;</span><br><span class="line">	<span class="type">double</span>[]   err;</span><br><span class="line">	<span class="comment">//记录反向传播时，本层节点的所有误差的平方和</span></span><br><span class="line">	<span class="type">double</span>     E;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="type">double</span>[] errors() &#123; <span class="keyword">return</span> err; &#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="type">double</span>[] feed(<span class="type">double</span>[] x) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;v.length;i++) &#123;</span><br><span class="line">			<span class="type">double</span>[] W = w[i];</span><br><span class="line">			v[i] = bW != <span class="literal">null</span> ? bW[i] : <span class="number">0.0</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;W.length;j++)</span><br><span class="line">				v[i] += W[j]*x[j];</span><br><span class="line">			<span class="comment">//将当前节点值更新为权重乘以对应输入的总和.</span></span><br><span class="line">			<span class="comment">//并用激活函数归一化</span></span><br><span class="line">			v[i] = fn.f(v[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//这里的v[i]是上一层节点共同作用的结果。影响率为w[j].</span></span><br><span class="line">		<span class="keyword">return</span> v;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="type">double</span>[] backprop(<span class="type">double</span>[] s) &#123;</span><br><span class="line">		<span class="type">double</span>[] out = <span class="keyword">new</span> <span class="title class_">double</span>[w[<span class="number">0</span>].length];</span><br><span class="line">		E = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;v.length;i++) &#123;</span><br><span class="line">			err[i] = fn.df(v[i])*s[i];</span><br><span class="line">			<span class="comment">//期望值与真实值的偏差-&gt;s[i]与此点的导数的乘积</span></span><br><span class="line">			<span class="comment">//同等偏差情况下，导数越大，误差err越大</span></span><br><span class="line">			E += err[i]*err[i];</span><br><span class="line">			<span class="type">double</span>[] W = w[i];</span><br><span class="line">			<span class="comment">//根据前一层节点对本节点的贡献率来给前一层节点的对应位置制造反向传播的输入</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;W.length;j++) out[j] += W[j]*err[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//这里的out[i]是本层所有节点共同作用的结果</span></span><br><span class="line">		<span class="keyword">return</span> out;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/* backprop与feed不同的地方是：</span></span><br><span class="line"><span class="comment">	 *</span></span><br><span class="line"><span class="comment">	 * feed传入的是函数值，输出的也是函数值</span></span><br><span class="line"><span class="comment">	 * backprop传入的是偏差值，但会经过df处理，</span></span><br><span class="line"><span class="comment">	 * 按照复合函数的链式法则，处理后的结果仍然是内层函数的偏差值，</span></span><br><span class="line"><span class="comment">	 * 所以可以继续传递到前一层。</span></span><br><span class="line"><span class="comment">	 *</span></span><br><span class="line"><span class="comment">	 * */</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="type">double</span> <span class="title function_">error</span><span class="params">()</span> &#123; <span class="keyword">return</span> E; &#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="type">double</span>[] update(<span class="type">double</span>[] o,<span class="type">double</span> r) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;v.length;i++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(bW != <span class="literal">null</span>)</span><br><span class="line">				bW[i] += r*err[i];</span><br><span class="line"></span><br><span class="line">			<span class="type">double</span>[] W = w[i];</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;W.length;j++)</span><br><span class="line">				W[j] += r*err[i]*o[j];</span><br><span class="line">			<span class="comment">//权重的增加值为:上一层的输出与连接位的对应误差err再乘以学习率的乘积的和。</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//误差越大权重每轮增加越大，学习率越大，权重增加越快。</span></span><br><span class="line">		<span class="keyword">return</span> v;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//随机构建初始值[-1,1]</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">initialize</span><span class="params">(Random rng)</span> &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;v.length;i++) &#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;w[i].length;j++)</span><br><span class="line">				w[i][j] = <span class="number">2</span>*rng.nextDouble() - <span class="number">1</span>;</span><br><span class="line">			bW[i] = <span class="number">2</span>*rng.nextDouble() - <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">initialize</span><span class="params">()</span> &#123;</span><br><span class="line">		initialize(<span class="keyword">new</span> <span class="title class_">Random</span>());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="组织成网络"><a href="#组织成网络" class="headerlink" title="组织成网络"></a>组织成网络</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.chengsluo.ann;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NeuralNetwork</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> inputUnits = <span class="number">0</span>;</span><br><span class="line">	ArrayList&lt;Layer&gt; layers = <span class="keyword">new</span> ArrayList&lt;Layer&gt;();</span><br><span class="line">	<span class="keyword">double</span> learningRate = <span class="number">0.2</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> NeuralNetwork <span class="title">learningRate</span><span class="params">(<span class="keyword">double</span> l)</span> </span>&#123;</span><br><span class="line">		learningRate = l;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> NeuralNetwork <span class="title">inputs</span><span class="params">(<span class="keyword">int</span> inputUnits)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.inputUnits = inputUnits;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> NeuralNetwork <span class="title">momentumLayer</span><span class="params">(<span class="keyword">int</span> units, Activation fn, <span class="keyword">boolean</span> bias)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> inputs = (layers.size() == <span class="number">0</span>) ? <span class="keyword">this</span>.inputUnits : layers.get(layers.size() - <span class="number">1</span>).units();</span><br><span class="line">		layers.add(<span class="keyword">new</span> MomentumLayer(units, inputs, fn, bias));</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//默认bias为空</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> NeuralNetwork <span class="title">momentumLayer</span><span class="params">(<span class="keyword">int</span> units, Activation fn)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> momentumLayer(units, fn, <span class="keyword">true</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//默认激活函数为tanh();</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> NeuralNetwork <span class="title">momentumLayer</span><span class="params">(<span class="keyword">int</span> units)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> momentumLayer(units, Activation.tanh());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> NeuralNetwork <span class="title">layer</span><span class="params">(<span class="keyword">int</span> units, Activation fn, <span class="keyword">boolean</span> bias)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//获取上一层网络的节点数</span></span><br><span class="line">		<span class="keyword">int</span> inputs = (layers.size() == <span class="number">0</span>) ? <span class="keyword">this</span>.inputUnits : layers.get(layers.size() - <span class="number">1</span>).units();</span><br><span class="line">		layers.add(<span class="keyword">new</span> Layer(units, inputs, fn, bias));</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> NeuralNetwork <span class="title">layer</span><span class="params">(<span class="keyword">int</span> units, Activation fn)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> layer(units, fn, <span class="keyword">true</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> NeuralNetwork <span class="title">layer</span><span class="params">(<span class="keyword">int</span> units)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> layer(units, Activation.tanh());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//从前到后，将前一层的输出反馈给本层作输入,返回最后一层的feed结果</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">double</span>[] feed(<span class="keyword">double</span>[] x) &#123;</span><br><span class="line">		<span class="keyword">for</span> (Layer l : layers)</span><br><span class="line">			x = l.feed(x);</span><br><span class="line">		<span class="keyword">return</span> x;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//获取最后一层的Value</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">double</span>[] output() &#123;</span><br><span class="line">		<span class="keyword">return</span> layers.get(layers.size() - <span class="number">1</span>).value();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//将每一层的错误累加起来</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">error</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">double</span> E = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (Layer l : layers)</span><br><span class="line">			E += l.error();</span><br><span class="line">		<span class="keyword">return</span> E;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> NeuralNetwork <span class="title">train</span><span class="params">(<span class="keyword">double</span>[] x, <span class="keyword">double</span>[] y)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//首先前向传播值</span></span><br><span class="line">		<span class="keyword">double</span>[] out = feed(x);</span><br><span class="line">		<span class="comment">//计算最终误差</span></span><br><span class="line">		<span class="keyword">double</span>[] s = <span class="keyword">new</span> <span class="keyword">double</span>[out.length];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; y.length; i++)</span><br><span class="line">			s[i] = y[i] - out[i];</span><br><span class="line">		<span class="comment">//打印每层的偏差向量</span></span><br><span class="line">		System.out.println(Layer.printVec(y)+<span class="string">" - "</span>+Layer.printVec(out)+<span class="string">" =&gt; "</span>+Layer.printVec(s));</span><br><span class="line">		<span class="comment">//反向传播错误率，同时更新了节点错误率</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = layers.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">			s = layers.get(i).backprop(s);</span><br><span class="line">		<span class="comment">//按照错误率和前一层值更新本层本层对应节点权重</span></span><br><span class="line">		<span class="keyword">for</span> (Layer l : layers)</span><br><span class="line">			x = l.update(x, learningRate);</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> NeuralNetwork <span class="title">initialize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (Layer l : layers)</span><br><span class="line">			l.initialize();</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//获取一个新的神经网络对象</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> NeuralNetwork <span class="title">build</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> NeuralNetwork();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="组织成网络"><a href="#组织成网络" class="headerlink" title="组织成网络"></a>组织成网络</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.chengsluo.ann;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">NeuralNetwork</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> <span class="variable">inputUnits</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">	ArrayList&lt;Layer&gt; layers = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;Layer&gt;();</span><br><span class="line">	<span class="type">double</span> <span class="variable">learningRate</span> <span class="operator">=</span> <span class="number">0.2</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> NeuralNetwork <span class="title function_">learningRate</span><span class="params">(<span class="type">double</span> l)</span> &#123;</span><br><span class="line">		learningRate = l;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> NeuralNetwork <span class="title function_">inputs</span><span class="params">(<span class="type">int</span> inputUnits)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.inputUnits = inputUnits;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> NeuralNetwork <span class="title function_">momentumLayer</span><span class="params">(<span class="type">int</span> units, Activation fn, <span class="type">boolean</span> bias)</span> &#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">inputs</span> <span class="operator">=</span> (layers.size() == <span class="number">0</span>) ? <span class="built_in">this</span>.inputUnits : layers.get(layers.size() - <span class="number">1</span>).units();</span><br><span class="line">		layers.add(<span class="keyword">new</span> <span class="title class_">MomentumLayer</span>(units, inputs, fn, bias));</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//默认bias为空</span></span><br><span class="line">	<span class="keyword">public</span> NeuralNetwork <span class="title function_">momentumLayer</span><span class="params">(<span class="type">int</span> units, Activation fn)</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> momentumLayer(units, fn, <span class="literal">true</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//默认激活函数为tanh();</span></span><br><span class="line">	<span class="keyword">public</span> NeuralNetwork <span class="title function_">momentumLayer</span><span class="params">(<span class="type">int</span> units)</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> momentumLayer(units, Activation.tanh());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> NeuralNetwork <span class="title function_">layer</span><span class="params">(<span class="type">int</span> units, Activation fn, <span class="type">boolean</span> bias)</span> &#123;</span><br><span class="line">		<span class="comment">//获取上一层网络的节点数</span></span><br><span class="line">		<span class="type">int</span> <span class="variable">inputs</span> <span class="operator">=</span> (layers.size() == <span class="number">0</span>) ? <span class="built_in">this</span>.inputUnits : layers.get(layers.size() - <span class="number">1</span>).units();</span><br><span class="line">		layers.add(<span class="keyword">new</span> <span class="title class_">Layer</span>(units, inputs, fn, bias));</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> NeuralNetwork <span class="title function_">layer</span><span class="params">(<span class="type">int</span> units, Activation fn)</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> layer(units, fn, <span class="literal">true</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> NeuralNetwork <span class="title function_">layer</span><span class="params">(<span class="type">int</span> units)</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> layer(units, Activation.tanh());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//从前到后，将前一层的输出反馈给本层作输入,返回最后一层的feed结果</span></span><br><span class="line">	<span class="keyword">public</span> <span class="type">double</span>[] feed(<span class="type">double</span>[] x) &#123;</span><br><span class="line">		<span class="keyword">for</span> (Layer l : layers)</span><br><span class="line">			x = l.feed(x);</span><br><span class="line">		<span class="keyword">return</span> x;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//获取最后一层的Value</span></span><br><span class="line">	<span class="keyword">public</span> <span class="type">double</span>[] output() &#123;</span><br><span class="line">		<span class="keyword">return</span> layers.get(layers.size() - <span class="number">1</span>).value();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//将每一层的错误累加起来</span></span><br><span class="line">	<span class="keyword">public</span> <span class="type">double</span> <span class="title function_">error</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="type">double</span> <span class="variable">E</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (Layer l : layers)</span><br><span class="line">			E += l.error();</span><br><span class="line">		<span class="keyword">return</span> E;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> NeuralNetwork <span class="title function_">train</span><span class="params">(<span class="type">double</span>[] x, <span class="type">double</span>[] y)</span> &#123;</span><br><span class="line">		<span class="comment">//首先前向传播值</span></span><br><span class="line">		<span class="type">double</span>[] out = feed(x);</span><br><span class="line">		<span class="comment">//计算最终误差</span></span><br><span class="line">		<span class="type">double</span>[] s = <span class="keyword">new</span> <span class="title class_">double</span>[out.length];</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; y.length; i++)</span><br><span class="line">			s[i] = y[i] - out[i];</span><br><span class="line">		<span class="comment">//打印每层的偏差向量</span></span><br><span class="line">		System.out.println(Layer.printVec(y)+<span class="string">&quot; - &quot;</span>+Layer.printVec(out)+<span class="string">&quot; =&gt; &quot;</span>+Layer.printVec(s));</span><br><span class="line">		<span class="comment">//反向传播错误率，同时更新了节点错误率</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> layers.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">			s = layers.get(i).backprop(s);</span><br><span class="line">		<span class="comment">//按照错误率和前一层值更新本层本层对应节点权重</span></span><br><span class="line">		<span class="keyword">for</span> (Layer l : layers)</span><br><span class="line">			x = l.update(x, learningRate);</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> NeuralNetwork <span class="title function_">initialize</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">for</span> (Layer l : layers)</span><br><span class="line">			l.initialize();</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//获取一个新的神经网络对象</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> NeuralNetwork <span class="title function_">build</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">NeuralNetwork</span>();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h3 id="提升性能-利用冲量构造单层"><a href="#提升性能-利用冲量构造单层" class="headerlink" title="提升性能(利用冲量构造单层)"></a>提升性能(利用冲量构造单层)</h3><p>这里层的实现不在使用前面讲的基本方法来更新权值，而是使用单独的矩阵来存储权重delta值。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.chengsluo.ann;</span><br><span class="line"><span class="comment">//使用冲量层来构建进行权值更新</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//这会使得权重在同一方向的收敛速度加快</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MomentumLayer</span> <span class="keyword">extends</span> <span class="title">Layer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">double</span> dW[][];</span><br><span class="line">	<span class="keyword">double</span> dbW[];</span><br><span class="line">	<span class="keyword">double</span> m = <span class="number">0.1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">MomentumLayer</span><span class="params">(<span class="keyword">int</span> units, <span class="keyword">int</span> inputs, Activation fn, <span class="keyword">boolean</span> bias)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(units, inputs, fn, bias);</span><br><span class="line">		dW = <span class="keyword">new</span> <span class="keyword">double</span>[units][];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v.length; i++)</span><br><span class="line">			dW[i] = <span class="keyword">new</span> <span class="keyword">double</span>[inputs];</span><br><span class="line">		<span class="keyword">if</span> (bias)</span><br><span class="line">			dbW = <span class="keyword">new</span> <span class="keyword">double</span>[units];</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="comment">//在权重的更新过程中，使用该权重的新delta值与旧delta值的加权平均</span></span><br><span class="line">	<span class="comment">//其中的权值为参数m</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">double</span>[] update(<span class="keyword">double</span>[] o, <span class="keyword">double</span> r) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (bW != <span class="keyword">null</span>) &#123;</span><br><span class="line">				dbW[i] = (<span class="number">1</span> - m) * r * err[i] + m * dbW[i];</span><br><span class="line">				bW[i] += dbW[i];</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">double</span>[] W = w[i];</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; W.length; j++) &#123;</span><br><span class="line">				dW[i][j] = (<span class="number">1</span> - m) * r * err[i] * o[j] + m * dW[i][j];</span><br><span class="line">				W[j] += dW[i][j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> v;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.chengsluo.ann;</span><br><span class="line"><span class="comment">//使用冲量层来构建进行权值更新</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//这会使得权重在同一方向的收敛速度加快</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MomentumLayer</span> <span class="keyword">extends</span> <span class="title class_">Layer</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">double</span> dW[][];</span><br><span class="line">	<span class="type">double</span> dbW[];</span><br><span class="line">	<span class="type">double</span> <span class="variable">m</span> <span class="operator">=</span> <span class="number">0.1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">MomentumLayer</span><span class="params">(<span class="type">int</span> units, <span class="type">int</span> inputs, Activation fn, <span class="type">boolean</span> bias)</span> &#123;</span><br><span class="line">		<span class="built_in">super</span>(units, inputs, fn, bias);</span><br><span class="line">		dW = <span class="keyword">new</span> <span class="title class_">double</span>[units][];</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; v.length; i++)</span><br><span class="line">			dW[i] = <span class="keyword">new</span> <span class="title class_">double</span>[inputs];</span><br><span class="line">		<span class="keyword">if</span> (bias)</span><br><span class="line">			dbW = <span class="keyword">new</span> <span class="title class_">double</span>[units];</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="comment">//在权重的更新过程中，使用该权重的新delta值与旧delta值的加权平均</span></span><br><span class="line">	<span class="comment">//其中的权值为参数m</span></span><br><span class="line">	<span class="keyword">public</span> <span class="type">double</span>[] update(<span class="type">double</span>[] o, <span class="type">double</span> r) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; v.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (bW != <span class="literal">null</span>) &#123;</span><br><span class="line">				dbW[i] = (<span class="number">1</span> - m) * r * err[i] + m * dbW[i];</span><br><span class="line">				bW[i] += dbW[i];</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="type">double</span>[] W = w[i];</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; W.length; j++) &#123;</span><br><span class="line">				dW[i][j] = (<span class="number">1</span> - m) * r * err[i] * o[j] + m * dW[i][j];</span><br><span class="line">				W[j] += dW[i][j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> v;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="测试ANN"><a href="#测试ANN" class="headerlink" title="测试ANN"></a>测试ANN</h2><h3 id="训练一个异或模型"><a href="#训练一个异或模型" class="headerlink" title="训练一个异或模型"></a>训练一个异或模型</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.chengsluo.ann;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">XorTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Obs</span> </span>&#123;</span><br><span class="line">		<span class="keyword">public</span> <span class="keyword">double</span>[] x;</span><br><span class="line">		<span class="keyword">public</span> <span class="keyword">double</span>[] y;</span><br><span class="line">		</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="title">Obs</span><span class="params">(<span class="keyword">double</span>[] x,<span class="keyword">double</span>[]y)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">this</span>.x = x;</span><br><span class="line">			<span class="keyword">this</span>.y = y;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Obs <span class="title">obs</span><span class="params">(<span class="keyword">double</span>[] x,<span class="keyword">double</span>[] y)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Obs(x,y);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Obs[] xorData = <span class="keyword">new</span> Obs[]&#123;</span><br><span class="line">				obs(<span class="keyword">new</span> <span class="keyword">double</span>[]&#123;-<span class="number">1</span>,<span class="number">0</span>&#125;,<span class="keyword">new</span> <span class="keyword">double</span>[]&#123;<span class="number">0</span>&#125;),</span><br><span class="line">				obs(<span class="keyword">new</span> <span class="keyword">double</span>[]&#123;<span class="number">1</span>,<span class="number">0</span>&#125;,<span class="keyword">new</span> <span class="keyword">double</span>[]&#123;<span class="number">1</span>&#125;),</span><br><span class="line">				obs(<span class="keyword">new</span> <span class="keyword">double</span>[]&#123;<span class="number">0</span>,<span class="number">1</span>&#125;,<span class="keyword">new</span> <span class="keyword">double</span>[]&#123;<span class="number">1</span>&#125;),</span><br><span class="line">				obs(<span class="keyword">new</span> <span class="keyword">double</span>[]&#123;<span class="number">1</span>,<span class="number">1</span>&#125;,<span class="keyword">new</span> <span class="keyword">double</span>[]&#123;<span class="number">0</span>&#125;),				</span><br><span class="line">		&#125;;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		NeuralNetwork nn = NeuralNetwork.build().inputs(<span class="number">2</span>).layer(<span class="number">3</span>).layer(<span class="number">1</span>);</span><br><span class="line">		NeuralNetwork bad= NeuralNetwork.build().inputs(<span class="number">2</span>).layer(<span class="number">1</span>);</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"nn\tbad"</span>);</span><br><span class="line">		nn.initialize();</span><br><span class="line">		bad.initialize();</span><br><span class="line">		<span class="keyword">double</span> lastErr = Double.POSITIVE_INFINITY;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1000</span>;i++) &#123;</span><br><span class="line">			<span class="keyword">double</span> err = <span class="number">0.0</span>;</span><br><span class="line">			<span class="keyword">double</span> errBad = <span class="number">0.0</span>;</span><br><span class="line">			<span class="keyword">for</span>(Obs x : xorData) &#123;</span><br><span class="line">				nn.train(x.x,x.y);</span><br><span class="line">				bad.train(x.x,x.y);</span><br><span class="line">				err += nn.error();</span><br><span class="line">				errBad += bad.error();</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(err+<span class="string">"\t"</span>+errBad);</span><br><span class="line">			<span class="keyword">if</span>(Math.abs(lastErr - err) &lt; <span class="number">1e-6</span>) <span class="keyword">break</span>;</span><br><span class="line">			lastErr = err;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="测试ANN"><a href="#测试ANN" class="headerlink" title="测试ANN"></a>测试ANN</h2><h3 id="训练一个异或模型"><a href="#训练一个异或模型" class="headerlink" title="训练一个异或模型"></a>训练一个异或模型</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.chengsluo.ann;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">XorTest</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">Obs</span> &#123;</span><br><span class="line">		<span class="keyword">public</span> <span class="type">double</span>[] x;</span><br><span class="line">		<span class="keyword">public</span> <span class="type">double</span>[] y;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">public</span> <span class="title function_">Obs</span><span class="params">(<span class="type">double</span>[] x,<span class="type">double</span>[]y)</span> &#123;</span><br><span class="line">			<span class="built_in">this</span>.x = x;</span><br><span class="line">			<span class="built_in">this</span>.y = y;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> Obs <span class="title function_">obs</span><span class="params">(<span class="type">double</span>[] x,<span class="type">double</span>[] y)</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Obs</span>(x,y);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span> &#123;</span><br><span class="line">		Obs[] xorData = <span class="keyword">new</span> <span class="title class_">Obs</span>[]&#123;</span><br><span class="line">				obs(<span class="keyword">new</span> <span class="title class_">double</span>[]&#123;-<span class="number">1</span>,<span class="number">0</span>&#125;,<span class="keyword">new</span> <span class="title class_">double</span>[]&#123;<span class="number">0</span>&#125;),</span><br><span class="line">				obs(<span class="keyword">new</span> <span class="title class_">double</span>[]&#123;<span class="number">1</span>,<span class="number">0</span>&#125;,<span class="keyword">new</span> <span class="title class_">double</span>[]&#123;<span class="number">1</span>&#125;),</span><br><span class="line">				obs(<span class="keyword">new</span> <span class="title class_">double</span>[]&#123;<span class="number">0</span>,<span class="number">1</span>&#125;,<span class="keyword">new</span> <span class="title class_">double</span>[]&#123;<span class="number">1</span>&#125;),</span><br><span class="line">				obs(<span class="keyword">new</span> <span class="title class_">double</span>[]&#123;<span class="number">1</span>,<span class="number">1</span>&#125;,<span class="keyword">new</span> <span class="title class_">double</span>[]&#123;<span class="number">0</span>&#125;),				</span><br><span class="line">		&#125;;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		<span class="type">NeuralNetwork</span> <span class="variable">nn</span> <span class="operator">=</span> NeuralNetwork.build().inputs(<span class="number">2</span>).layer(<span class="number">3</span>).layer(<span class="number">1</span>);</span><br><span class="line">		NeuralNetwork bad= NeuralNetwork.build().inputs(<span class="number">2</span>).layer(<span class="number">1</span>);</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">&quot;nn\tbad&quot;</span>);</span><br><span class="line">		nn.initialize();</span><br><span class="line">		bad.initialize();</span><br><span class="line">		<span class="type">double</span> <span class="variable">lastErr</span> <span class="operator">=</span> Double.POSITIVE_INFINITY;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1000</span>;i++) &#123;</span><br><span class="line">			<span class="type">double</span> <span class="variable">err</span> <span class="operator">=</span> <span class="number">0.0</span>;</span><br><span class="line">			<span class="type">double</span> <span class="variable">errBad</span> <span class="operator">=</span> <span class="number">0.0</span>;</span><br><span class="line">			<span class="keyword">for</span>(Obs x : xorData) &#123;</span><br><span class="line">				nn.train(x.x,x.y);</span><br><span class="line">				bad.train(x.x,x.y);</span><br><span class="line">				err += nn.error();</span><br><span class="line">				errBad += bad.error();</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(err+<span class="string">&quot;\t&quot;</span>+errBad);</span><br><span class="line">			<span class="keyword">if</span>(Math.abs(lastErr - err) &lt; <span class="number">1e-6</span>) <span class="keyword">break</span>;</span><br><span class="line">			lastErr = err;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="时间序列测试"><a href="#时间序列测试" class="headerlink" title="时间序列测试"></a>时间序列测试</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.chengsluo.ann;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimeSeriesTest</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> k = <span class="number">14</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">double</span>[] x = <span class="keyword">new</span> <span class="keyword">double</span>[k];</span><br><span class="line">		<span class="keyword">double</span>[] y = <span class="keyword">new</span> <span class="keyword">double</span>[<span class="number">1</span>];</span><br><span class="line">		<span class="keyword">double</span>   t = <span class="number">0.0</span>;</span><br><span class="line">		Random twist = <span class="keyword">new</span> Random();</span><br><span class="line">		NeuralNetwork       nn    = NeuralNetwork.build().inputs(k).layer(<span class="number">5</span>).layer(<span class="number">1</span>).initialize();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1000</span>;i++) &#123;</span><br><span class="line">			<span class="keyword">double</span> base = Math.sin(t);</span><br><span class="line">			y[<span class="number">0</span>] = base + <span class="number">0.5</span>*twist.nextGaussian();</span><br><span class="line">			<span class="keyword">if</span>(i &gt;= x.length) &#123;</span><br><span class="line">				nn.train(x, y);</span><br><span class="line">				System.out.println(nn.output()[<span class="number">0</span>]+<span class="string">"\t"</span>+y[<span class="number">0</span>]+<span class="string">"\t"</span>+base);</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;i&lt;x.length-<span class="number">1</span>;j++) x[i] = x[i+<span class="number">1</span>];</span><br><span class="line">				x[x.length-<span class="number">1</span>]=y[<span class="number">0</span>];</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				x[i] = y[<span class="number">0</span>];</span><br><span class="line">			&#125;</span><br><span class="line">			t += <span class="number">2.0</span>*Math.PI/<span class="number">60.0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>###　冲量层加速测试</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.chengsluo.ann;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MomentumComparisonTest</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Obs</span> </span>&#123;</span><br><span class="line">		<span class="keyword">public</span> <span class="keyword">double</span>[] x;</span><br><span class="line">		<span class="keyword">public</span> <span class="keyword">double</span>[] y;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="title">Obs</span><span class="params">(<span class="keyword">double</span>[] x, <span class="keyword">double</span>[] y)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">this</span>.x = x;</span><br><span class="line">			<span class="keyword">this</span>.y = y;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Obs <span class="title">obs</span><span class="params">(<span class="keyword">double</span>[] x, <span class="keyword">double</span>[] y)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Obs(x, y);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Obs[] xorData = <span class="keyword">new</span> Obs[] &#123; obs(<span class="keyword">new</span> <span class="keyword">double</span>[] &#123; -<span class="number">1</span>, <span class="number">0</span> &#125;, <span class="keyword">new</span> <span class="keyword">double</span>[] &#123; <span class="number">0</span> &#125;),</span><br><span class="line">				obs(<span class="keyword">new</span> <span class="keyword">double</span>[] &#123; <span class="number">1</span>, <span class="number">0</span> &#125;, <span class="keyword">new</span> <span class="keyword">double</span>[] &#123; <span class="number">1</span> &#125;), obs(<span class="keyword">new</span> <span class="keyword">double</span>[] &#123; <span class="number">0</span>, <span class="number">1</span> &#125;, <span class="keyword">new</span> <span class="keyword">double</span>[] &#123; <span class="number">1</span> &#125;),</span><br><span class="line">				obs(<span class="keyword">new</span> <span class="keyword">double</span>[] &#123; <span class="number">1</span>, <span class="number">1</span> &#125;, <span class="keyword">new</span> <span class="keyword">double</span>[] &#123; <span class="number">0</span> &#125;), &#125;;</span><br><span class="line"></span><br><span class="line">		NeuralNetwork[] nn = <span class="keyword">new</span> NeuralNetwork[<span class="number">10</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">			nn[i] = NeuralNetwork.build().inputs(<span class="number">2</span>).layer(<span class="number">3</span>).layer(<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">5</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">			nn[i] = NeuralNetwork.build().inputs(<span class="number">2</span>).momentumLayer(<span class="number">3</span>).momentumLayer(<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">double</span> err[] = <span class="keyword">new</span> <span class="keyword">double</span>[<span class="number">10</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">			nn[i].initialize();</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">300</span>; j++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">				NeuralNetwork n = nn[i];</span><br><span class="line">				err[i] = <span class="number">0.0</span>;</span><br><span class="line">				<span class="keyword">for</span> (Obs x : xorData) &#123;</span><br><span class="line">					n.train(x.x, x.y);</span><br><span class="line">					err[i] += n.error();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (i &gt; <span class="number">0</span>)</span><br><span class="line">					sb.append(<span class="string">"\t"</span>);</span><br><span class="line">				sb.append(err[i]);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(sb.toString());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="时间序列测试"><a href="#时间序列测试" class="headerlink" title="时间序列测试"></a>时间序列测试</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.chengsluo.ann;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TimeSeriesTest</span> &#123;</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> <span class="number">14</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="type">double</span>[] x = <span class="keyword">new</span> <span class="title class_">double</span>[k];</span><br><span class="line">		<span class="type">double</span>[] y = <span class="keyword">new</span> <span class="title class_">double</span>[<span class="number">1</span>];</span><br><span class="line">		<span class="type">double</span>   <span class="variable">t</span> <span class="operator">=</span> <span class="number">0.0</span>;</span><br><span class="line">		<span class="type">Random</span> <span class="variable">twist</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">		<span class="type">NeuralNetwork</span>       <span class="variable">nn</span>    <span class="operator">=</span> NeuralNetwork.build().inputs(k).layer(<span class="number">5</span>).layer(<span class="number">1</span>).initialize();</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1000</span>;i++) &#123;</span><br><span class="line">			<span class="type">double</span> <span class="variable">base</span> <span class="operator">=</span> Math.sin(t);</span><br><span class="line">			y[<span class="number">0</span>] = base + <span class="number">0.5</span>*twist.nextGaussian();</span><br><span class="line">			<span class="keyword">if</span>(i &gt;= x.length) &#123;</span><br><span class="line">				nn.train(x, y);</span><br><span class="line">				System.out.println(nn.output()[<span class="number">0</span>]+<span class="string">&quot;\t&quot;</span>+y[<span class="number">0</span>]+<span class="string">&quot;\t&quot;</span>+base);</span><br><span class="line">				<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;i&lt;x.length-<span class="number">1</span>;j++) x[i] = x[i+<span class="number">1</span>];</span><br><span class="line">				x[x.length-<span class="number">1</span>]=y[<span class="number">0</span>];</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				x[i] = y[<span class="number">0</span>];</span><br><span class="line">			&#125;</span><br><span class="line">			t += <span class="number">2.0</span>*Math.PI/<span class="number">60.0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="冲量层加速测试"><a href="#冲量层加速测试" class="headerlink" title="冲量层加速测试"></a>冲量层加速测试</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.chengsluo.ann;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MomentumComparisonTest</span> &#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">Obs</span> &#123;</span><br><span class="line">		<span class="keyword">public</span> <span class="type">double</span>[] x;</span><br><span class="line">		<span class="keyword">public</span> <span class="type">double</span>[] y;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">public</span> <span class="title function_">Obs</span><span class="params">(<span class="type">double</span>[] x, <span class="type">double</span>[] y)</span> &#123;</span><br><span class="line">			<span class="built_in">this</span>.x = x;</span><br><span class="line">			<span class="built_in">this</span>.y = y;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> Obs <span class="title function_">obs</span><span class="params">(<span class="type">double</span>[] x, <span class="type">double</span>[] y)</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Obs</span>(x, y);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span> &#123;</span><br><span class="line">		Obs[] xorData = <span class="keyword">new</span> <span class="title class_">Obs</span>[] &#123; obs(<span class="keyword">new</span> <span class="title class_">double</span>[] &#123; -<span class="number">1</span>, <span class="number">0</span> &#125;, <span class="keyword">new</span> <span class="title class_">double</span>[] &#123; <span class="number">0</span> &#125;),</span><br><span class="line">				obs(<span class="keyword">new</span> <span class="title class_">double</span>[] &#123; <span class="number">1</span>, <span class="number">0</span> &#125;, <span class="keyword">new</span> <span class="title class_">double</span>[] &#123; <span class="number">1</span> &#125;), obs(<span class="keyword">new</span> <span class="title class_">double</span>[] &#123; <span class="number">0</span>, <span class="number">1</span> &#125;, <span class="keyword">new</span> <span class="title class_">double</span>[] &#123; <span class="number">1</span> &#125;),</span><br><span class="line">				obs(<span class="keyword">new</span> <span class="title class_">double</span>[] &#123; <span class="number">1</span>, <span class="number">1</span> &#125;, <span class="keyword">new</span> <span class="title class_">double</span>[] &#123; <span class="number">0</span> &#125;), &#125;;</span><br><span class="line"></span><br><span class="line">		NeuralNetwork[] nn = <span class="keyword">new</span> <span class="title class_">NeuralNetwork</span>[<span class="number">10</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">			nn[i] = NeuralNetwork.build().inputs(<span class="number">2</span>).layer(<span class="number">3</span>).layer(<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">5</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">			nn[i] = NeuralNetwork.build().inputs(<span class="number">2</span>).momentumLayer(<span class="number">3</span>).momentumLayer(<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="type">double</span> err[] = <span class="keyword">new</span> <span class="title class_">double</span>[<span class="number">10</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">			nn[i].initialize();</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">300</span>; j++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">				<span class="type">NeuralNetwork</span> <span class="variable">n</span> <span class="operator">=</span> nn[i];</span><br><span class="line">				err[i] = <span class="number">0.0</span>;</span><br><span class="line">				<span class="keyword">for</span> (Obs x : xorData) &#123;</span><br><span class="line">					n.train(x.x, x.y);</span><br><span class="line">					err[i] += n.error();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (i &gt; <span class="number">0</span>)</span><br><span class="line">					sb.append(<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">				sb.append(err[i]);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(sb.toString());</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>拜伦·埃利斯. 实时分析[M]. 机械工业出版社, 2016.</p>
-<p>CS231n: Convolutional Neural Networks for Visual Recognition<br><a href="http://cs231n.stanford.edu" target="_blank" rel="noopener">http://cs231n.stanford.edu</a></p>
-<p>SourceCode<br><a href="https://github.com/chengsluo/code-java/tree/master/ArtificialNeuralNetwork" target="_blank" rel="noopener">https://github.com/chengsluo/code-java/tree/master/ArtificialNeuralNetwork</a></p>
+<p>CS231n: Convolutional Neural Networks for Visual Recognition<br><a href="http://cs231n.stanford.edu/">http://cs231n.stanford.edu</a></p>
+<p>SourceCode<br><a href="https://github.com/chengsluo/code-java/tree/master/ArtificialNeuralNetwork">https://github.com/chengsluo/code-java/tree/master/ArtificialNeuralNetwork</a></p>
 
-      
     </div>
 
     
-
     
-    
-    
-
-    
-
-    
-      
-    
-    
-
     
 
     <footer class="post-footer">
-      
 
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/12/06/线性回归与逻辑回归/" rel="next" title="线性回归与逻辑回归">
-                <i class="fa fa-chevron-left"></i> 线性回归与逻辑回归
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/15/利用Docker构建集群并运行WordCount/" rel="prev" title="利用Docker构建集群并运行WordCount">
-                利用Docker构建集群并运行WordCount <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-  </div>
-
-
-          </div>
-          
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-      </div>
-    </div>
-
-  
-
-
-
-        </div>
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">Chengs Luo</p>
-              <div class="site-description motion-element" itemprop="description">"I want to put a ding in the universe. " —— Steve Jobs</div>
-          </div>
-
-          
-            <nav class="site-state motion-element">
-              
-                <div class="site-state-item site-state-posts">
-                
-                  <a href="/archives/">
-                
-                    <span class="site-state-item-count">7</span>
-                    <span class="site-state-item-name">posts</span>
-                  </a>
-                </div>
-              
-
-              
-
-              
-                
-                
-                <div class="site-state-item site-state-tags">
-                  
-                    
-                      <a href="/tags/">
-                    
-                  
-                    
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">tags</span>
-                  </a>
-                </div>
-              
-            </nav>
-          
-
-          
-
-          
-
-          
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://github.com/chengsluo" title="GitHub &rarr; https://github.com/chengsluo" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://www.douban.com/people/70427926/" title="Douban &rarr; https://www.douban.com/people/70427926/" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i>Douban</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://twitter.com/ChengsLuo" title="Twitter &rarr; https://twitter.com/ChengsLuo" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://instagram.com/chengsluo" title="Instagram &rarr; https://instagram.com/chengsluo" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
-                </span>
-              
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/12/06/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%8E%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/" rel="prev" title="线性回归与逻辑回归">
+                  <i class="fa fa-angle-left"></i> 线性回归与逻辑回归
+                </a>
             </div>
-          
-
-          
-
-          
-          
-
-          
-            
-          
-          
-
-        </div>
-      </div>
-
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立ANN"><span class="nav-number">2.</span> <span class="nav-text">建立ANN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造激活函数"><span class="nav-number">2.1.</span> <span class="nav-text">构造激活函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建单层"><span class="nav-number">2.2.</span> <span class="nav-text">构建单层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组织成网络"><span class="nav-number">2.3.</span> <span class="nav-text">组织成网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提升性能-利用冲量构造单层"><span class="nav-number">2.4.</span> <span class="nav-text">提升性能(利用冲量构造单层)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试ANN"><span class="nav-number">3.</span> <span class="nav-text">测试ANN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#训练一个异或模型"><span class="nav-number">3.1.</span> <span class="nav-text">训练一个异或模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间序列测试"><span class="nav-number">3.2.</span> <span class="nav-text">时间序列测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
-            
-
+            <div class="post-nav-item">
+                <a href="/2017/11/15/%E5%88%A9%E7%94%A8Docker%E6%9E%84%E5%BB%BA%E9%9B%86%E7%BE%A4%E5%B9%B6%E8%BF%90%E8%A1%8CWordCount/" rel="next" title="利用Docker构建集群并运行WordCount">
+                  利用Docker构建集群并运行WordCount <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
           </div>
-        </div>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-  
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; 2014 – <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Chengs Luo</span>
-
-  
-
-  
+    </footer>
+  </article>
 </div>
 
 
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.8.0</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.2</div>
-
-
-
-
-        
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
 
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
 
-    
+  <footer class="footer">
+    <div class="footer-inner">
 
-    
-
-    
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Chengs Luo</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
 
-  
-
-<script>
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </div>
+  </footer>
 
   
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
 
-  
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/utils.js?v=7.1.2"></script>
-
-  <script src="/js/motion.js?v=7.1.2"></script>
-
-
-
-  
-  
-
-
-  <script src="/js/affix.js?v=7.1.2"></script>
-
-  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
-
-
-
-
-  
-  <script src="/js/scrollspy.js?v=7.1.2"></script>
-<script src="/js/post-details.js?v=7.1.2"></script>
-
-
-
-  
-
-
-  <script src="/js/next-boot.js?v=7.1.2"></script>
-
-
-  
-
-  
-
-  
-
-  
-  
-
-<script>
-  var disqus_config = function() {
-    this.page.url = "https://chengsluo.github.io/2016/12/19/利用Java构建神经网络/";
-    this.page.identifier = "2016/12/19/利用Java构建神经网络/";
-    this.page.title = '利用Java构建神经网络';
-    };
-  function loadComments() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://chengsluo.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', '' + +new Date());
-    (d.head || d.body).appendChild(s);
-  }
-  
-    window.addEventListener('load', loadComments, false);
-  
-</script>
-
-
-
-
-
-  
-
-
-  
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"chengsluo","count":false,"lazyload":false,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js" defer></script>
 
 </body>
 </html>
